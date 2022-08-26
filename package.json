@@ -1,0 +1,21 @@
+{
+  "name": "p7lespetitsplats",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint --max-warnings=0 .",
+    "sass": "sass --watch ./sass/main.scss:./css/style.css -w ",
+    "prefix": "postcss ./css/style.css --use autoprefixer -d ./css/prefixed/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CedricMlg/P7_LesPetitsPlats_Malingre_Cedric"
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0",
+    "sass": "^1.52.3"
+  },
+  "dependencies": {
+    "jsdoc": "^3.6.10"
+  }
+}
