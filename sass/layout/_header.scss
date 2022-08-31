@@ -1,0 +1,28 @@
+header {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  &__block {
+    width: 100%;
+    &-logo {
+      display: flex;
+      justify-content: center;
+    }
+    &-searchbar {
+      width: 100%;
+    }
+    &-tag {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: 0 0 50px 0;
+      &-selector {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+    }
+  }
+}

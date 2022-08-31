@@ -2,7 +2,10 @@
 @import "./abstracts/variables";
 @import "./base/base";
 @import "./base/typography";
+@import "./components/logo";
 @import "./components/recipe";
+@import "./components/searchbar";
+@import "./components/tag-selector";
 @import "./components/tag";
 @import "./layout/header";
 @import "./page/homePage";

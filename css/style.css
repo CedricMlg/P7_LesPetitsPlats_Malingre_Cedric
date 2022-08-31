@@ -1,3 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto&display=swap");
+body {
+  margin: 3% 7% 0 7%;
+}
 
+main.active {
+  margin-top: -460px;
+}
+
+.header__searchbar input {
+  font-size: 22px;
+  font-weight: 400;
+  font-family: "Lato", sans-serif;
+}
+.header__tag p {
+  font-size: 17px;
+  font-weight: 700;
+  font-family: "Lato", sans-serif;
+}
+.header__tag-researcher {
+  font-size: 22px;
+  font-weight: none;
+  font-family: "Lato", sans-serif;
+}
+.header__tag-researcher input {
+  font-size: 21px;
+  font-weight: none;
+  font-family: "Lato", sans-serif;
+}
+.header__tag-choice {
+  font-size: 20px;
+  font-weight: 400;
+  font-family: "Lato", sans-serif;
+}
+
+.header__logo {
+  width: 355px;
+  height: 123px;
+}
+
+.header__searchbar {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  border-radius: 4px;
+  margin: 30px 0;
+  padding: 22px;
+  background-color: #e7e7e7;
+}
+.header__searchbar-input {
+  width: 100%;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+.header__searchbar-btn {
+  border: none;
+  background-color: transparent;
+}
+.header__searchbar-btn svg {
+  width: 41px;
+  height: 41px;
+}
+
+.header__tag-selector {
+  color: white;
+  position: relative;
+  border-radius: 5px;
+  width: fit-content;
+  max-width: 52%;
+  height: fit-content;
+  margin: 0 50px 30px 0;
+}
+.header__tag-selector[data-tag=ingredient] {
+  background-color: #3282f7;
+}
+.header__tag-selector[data-tag=ingredient] .header__tag-choice--display.active {
+  background-color: #3282f7;
+  border-radius: 4px;
+  display: block;
+}
+.header__tag-selector[data-tag=device] {
+  background-color: #68d9a4;
+}
+.header__tag-selector[data-tag=device] .header__tag-choice--display.active {
+  background-color: #68d9a4;
+  border-radius: 4px;
+  display: block;
+}
+.header__tag-selector[data-tag=ustensil] {
+  background-color: #ed6454;
+}
+.header__tag-selector[data-tag=ustensil] .header__tag-choice--display.active {
+  background-color: #ed6454;
+  border-radius: 4px;
+  display: block;
+}
+.header__tag-researcher {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 20px;
+}
+.header__tag-researcher p {
+  margin: 0 40px 0 0;
+}
+.header__tag-researcher input {
+  color: white;
+  display: none;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  width: 100%;
+}
+.header__tag-researcher input::placeholder {
+  color: white;
+  opacity: 0.5;
+}
+.header__tag-researcher svg {
+  fill: white;
+  height: 20px;
+  width: 19px;
+}
+.header__tag-choice {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 10px 20px 5px 20px;
+}
+.header__tag-choice--display {
+  display: none;
+}
+.header__tag-choice p {
+  flex: 0 0 33.2%;
+  margin: 0 0 12px 0;
+}
+
+.header__tag {
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  margin: 0 25px 0 0;
+  padding: 14px;
+  width: fit-content;
+  color: white;
+}
+.header__tag p {
+  margin: 0 12px;
+}
+.header__tag svg {
+  margin: 0 5px;
+  width: 26px;
+  height: 26px;
+  fill: white;
+}
+.header__tag[data-tag=ingredient] {
+  background-color: #3282f7;
+}
+.header__tag[data-tag=device] {
+  background-color: #68d9a4;
+}
+.header__tag[data-tag=ustensil] {
+  background-color: #ed6454;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+}
+
+.header__block {
+  width: 100%;
+}
+.header__block-logo {
+  display: flex;
+  justify-content: center;
+}
+.header__block-searchbar {
+  width: 100%;
+}
+.header__block-tag {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 0 50px 0;
+}
+.header__block-tag-selector {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
 /*# sourceMappingURL=style.css.map */

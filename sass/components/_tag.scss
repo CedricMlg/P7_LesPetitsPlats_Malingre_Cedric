@@ -1,0 +1,29 @@
+.header {
+  &__tag {
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    margin: 0 25px 0 0;
+    padding: 14px;
+    width: fit-content;
+    color: white;
+    & p {
+      margin: 0 12px;
+    }
+    & svg {
+      margin: 0 5px;
+      width: 26px;
+      height: 26px;
+      fill: white;
+    }
+    &[data-tag="ingredient"] {
+      background-color: #3282f7;
+    }
+    &[data-tag="device"] {
+      background-color: #68d9a4;
+    }
+    &[data-tag="ustensil"] {
+      background-color: #ed6454;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto&display=swap");
+
+.header {
+  &__searchbar {
+    & input {
+      font-size: 22px;
+      font-weight: 400;
+      font-family: $primary-font;
+    }
+  }
+  &__tag {
+    & p {
+      font-size: 17px;
+      font-weight: 700;
+      font-family: $primary-font;
+    }
+    &-researcher {
+      font-size: 22px;
+      font-weight: none;
+      font-family: $primary-font;
+      & input {
+        font-size: 21px;
+        font-weight: none;
+        font-family: $primary-font;
+      }
+    }
+    &-choice {
+      font-size: 20px;
+      font-weight: 400;
+      font-family: $primary-font;
+    }
+  }
+}
