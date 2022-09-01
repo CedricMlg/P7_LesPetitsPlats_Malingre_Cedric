@@ -31,3 +31,37 @@
     }
   }
 }
+
+.main {
+  &__recipe {
+    &-titlextime {
+      & p {
+        font-size: 22px;
+        font-weight: 400;
+        font-family: $primary-font;
+      }
+    }
+    &-time {
+      & p {
+        font-size: 22px;
+        font-weight: 700;
+        font-family: $primary-font;
+      }
+    }
+    &-ingredients {
+      font-size: 15px;
+      font-weight: 400;
+      font-family: $primary-font;
+      & p {
+        & span {
+          font-weight: bold;
+        }
+      }
+    }
+    &-description {
+      font-size: 15px;
+      font-weight: 400;
+      font-family: $secondary-font;
+    }
+  }
+}

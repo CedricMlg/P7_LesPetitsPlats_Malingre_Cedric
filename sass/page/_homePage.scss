@@ -1,0 +1,13 @@
+.main {
+  &__block {
+    &-recipe {
+      &-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        column-gap: 4%;
+        row-gap: 50px;
+      }
+    }
+  }
+}

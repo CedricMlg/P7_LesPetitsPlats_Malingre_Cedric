@@ -1,0 +1,60 @@
+.main {
+  &__recipe {
+    &-card {
+      margin: 0;
+      width: 100%;
+      height: min-content;
+    }
+    &-block {
+      &-img {
+        width: 100%;
+        height: 240px;
+      }
+    }
+    &-img {
+      object-fit: cover;
+      border-radius: 5px 5px 0 0;
+      height: 100%;
+      width: 100%;
+    }
+    &-caption {
+      display: block;
+      border-radius: 0 0 5px 5px;
+      background-color: #e7e7e7;
+      padding: 22px;
+    }
+    &-titlextime {
+      display: flex;
+      justify-content: space-between;
+      & p {
+        margin: 0;
+      }
+    }
+    &-time {
+      display: flex;
+      align-items: center;
+      & svg {
+        width: 30px;
+        height: 30px;
+      }
+      & p {
+        margin-left: 8px;
+      }
+    }
+    &-ingredientsxdescription {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      & p {
+        margin: 0;
+      }
+    }
+    &-ingredients {
+      width: 52%;
+      overflow-wrap: break-word;
+    }
+    &-description {
+      width: 48%;
+    }
+  }
+}
