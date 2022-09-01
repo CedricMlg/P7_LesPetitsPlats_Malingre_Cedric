@@ -7,34 +7,55 @@
       width: fit-content;
       max-width: 52%;
       height: fit-content;
-      margin: 0 50px 30px 0;
+      margin: 0 50px 60px 0;
+      &.active {
+        margin: 0 50px 120px 0;
+      }
       &[data-tag="ingredient"] {
         background-color: #3282f7;
-        .header__tag-choice {
-          &--display.active {
-            background-color: #3282f7;
-            border-radius: 4px;
-            display: block;
+        .header {
+          &__tag {
+            &-choice {
+              &--display {
+                &.active {
+                  background-color: #3282f7;
+                  border-radius: 4px;
+                  display: block;
+                }
+              }
+            }
           }
         }
       }
       &[data-tag="device"] {
         background-color: #68d9a4;
-        .header__tag-choice {
-          &--display.active {
-            background-color: #68d9a4;
-            border-radius: 4px;
-            display: block;
+        .header {
+          &__tag {
+            &-choice {
+              &--display {
+                &.active {
+                  background-color: #68d9a4;
+                  border-radius: 4px;
+                  display: block;
+                }
+              }
+            }
           }
         }
       }
       &[data-tag="ustensil"] {
         background-color: #ed6454;
-        .header__tag-choice {
-          &--display.active {
-            background-color: #ed6454;
-            border-radius: 4px;
-            display: block;
+        .header {
+          &__tag {
+            &-choice {
+              &--display {
+                &.active {
+                  background-color: #ed6454;
+                  border-radius: 4px;
+                  display: block;
+                }
+              }
+            }
           }
         }
       }
@@ -43,9 +64,12 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 25px 20px;
+      padding: 31px 28px;
       & p {
-        margin: 0 40px 0 0;
+        margin: 0 45px 0 0;
+        &.active {
+          display: none;
+        }
       }
       & input {
         color: white;
@@ -58,11 +82,17 @@
           color: white;
           opacity: 0.5;
         }
+        &.active {
+          display: block;
+        }
       }
       & svg {
         fill: white;
         height: 20px;
         width: 19px;
+        &.active {
+          transform: rotate(-180deg);
+        }
       }
     }
     &-choice {
