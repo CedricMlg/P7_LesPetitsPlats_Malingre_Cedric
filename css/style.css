@@ -161,10 +161,10 @@ main.active {
   border-radius: 4px;
   display: block;
 }
-.header__tag-selector[data-tag=device] {
+.header__tag-selector[data-tag=appliance] {
   background-color: #68d9a4;
 }
-.header__tag-selector[data-tag=device] .header__tag-choice--display.active {
+.header__tag-selector[data-tag=appliance] .header__tag-choice--display.active {
   background-color: #68d9a4;
   border-radius: 4px;
   display: block;
