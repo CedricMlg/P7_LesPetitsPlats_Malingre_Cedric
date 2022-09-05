@@ -65,7 +65,7 @@ main.active {
 .main__recipe-card {
   margin: 0;
   width: 100%;
-  height: min-content;
+  height: 100%;
 }
 .main__recipe-block-img {
   width: 100%;
@@ -79,6 +79,7 @@ main.active {
 }
 .main__recipe-caption {
   display: block;
+  height: 200px;
   border-radius: 0 0 5px 5px;
   background-color: #e7e7e7;
   padding: 22px;
@@ -114,7 +115,12 @@ main.active {
   overflow-wrap: break-word;
 }
 .main__recipe-description {
+  overflow: hidden;
+  height: 92px;
   width: 48%;
+}
+.main__recipe-description:hover {
+  overflow: auto;
 }
 
 .header__searchbar {
