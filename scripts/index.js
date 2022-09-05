@@ -1,3 +1,4 @@
-import {recipes} from "../data/recipes.js";
+import { recipes } from "../data/recipes.js";
+import { FactoryRecipeCard } from "./factories/recipeCard.js";
 
-console.log(recipes);&
+new FactoryRecipeCard(recipes);
