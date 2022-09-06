@@ -1,5 +1,5 @@
 class Tags {
-  constructor(itemsArray, categorie) {
+  constructor(itemsArray, category) {
     let uniqueItemArray = [...new Set(itemsArray)];
     const blockTagSelector = document.querySelector(
       ".header__block-tag-selector"
@@ -7,14 +7,14 @@ class Tags {
 
     const templateTagSelector = document.createElement("div");
     templateTagSelector.classList.add(`header__tag-selector`);
-    templateTagSelector.dataset.tag = `${categorie}`;
+    templateTagSelector.dataset.tag = `${category}`;
     templateTagSelector.innerHTML = `
             <div class="header__tag-researcher">
-          <p>${categorie}</p>
+          <p>${category}</p>
           <input
             type="text"
-            placeholder="Rechercher un ${categorie}"
-            name="search_${categorie}"
+            placeholder="Rechercher un ${category}"
+            name="search_${category}"
           />
           <svg
             width="16"
