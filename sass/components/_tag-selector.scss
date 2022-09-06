@@ -8,12 +8,15 @@
       max-width: 52%;
       height: fit-content;
       max-height: 460px;
-      overflow: auto;
+      overflow: hidden;
       margin: 0 50px 60px 0;
+      &:hover {
+        overflow-y: auto;
+      }
       &.active {
         margin: 0 50px 120px 0;
       }
-      &[data-tag="ingredient"] {
+      &[data-tag="ingredients"] {
         background-color: #3282f7;
         .header {
           &__tag {
@@ -29,7 +32,7 @@
           }
         }
       }
-      &[data-tag="appliance"] {
+      &[data-tag="appareils"] {
         background-color: #68d9a4;
         .header {
           &__tag {
@@ -45,7 +48,7 @@
           }
         }
       }
-      &[data-tag="ustensil"] {
+      &[data-tag="ustensiles"] {
         background-color: #ed6454;
         .header {
           &__tag {
@@ -68,6 +71,7 @@
       justify-content: space-between;
       padding: 31px 28px;
       & p {
+        text-transform: capitalize;
         margin: 0 45px 0 0;
         &.active {
           display: none;
