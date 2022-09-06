@@ -1,4 +1,4 @@
-class FactoryRecipeCard {
+class RecipeCard {
   constructor(recipesArray) {
     this.blockRecipeCards = document.querySelector(".main__block-recipe-cards");
     this.blockRecipeCards.innerHTML = "";
@@ -69,4 +69,4 @@ class FactoryRecipeCard {
   }
 }
 
-export { FactoryRecipeCard };
+export { RecipeCard };
