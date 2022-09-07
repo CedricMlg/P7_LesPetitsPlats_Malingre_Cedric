@@ -1,9 +1,20 @@
 class Tags {
   constructor(itemsArray, category) {
     let uniqueItemArray = [...new Set(itemsArray)];
+    let sortedItemArray = [];
     const blockTagSelector = document.querySelector(
       ".header__block-tag-selector"
     );
+
+    for (const uniqueItem of uniqueItemArray) {
+      sortedItemArray.push(
+        uniqueItem
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+      );
+    }
+    sortedItemArray.sort();
 
     const templateTagSelector = document.createElement("div");
     templateTagSelector.classList.add(`header__tag-selector`);
@@ -35,7 +46,7 @@ class Tags {
 
     itemBlock.innerHTML = "";
 
-    for (const item of uniqueItemArray) {
+    for (const item of sortedItemArray) {
       const element = document.createElement("p");
       element.innerHTML = `${item}`;
       itemBlock.appendChild(element);
