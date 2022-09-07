@@ -232,7 +232,7 @@ main.active {
 .header__tag-researcher svg {
   fill: white;
   height: 20px;
-  width: 19px;
+  width: 24px;
 }
 .header__tag-researcher svg.active {
   transform: rotate(-180deg);
