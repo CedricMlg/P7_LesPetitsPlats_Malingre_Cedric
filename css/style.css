@@ -235,6 +235,7 @@ main.active {
   display: none;
 }
 .header__tag-choice p {
+  text-transform: capitalize;
   flex: 0 0 33.2%;
   margin: 0 0 12px 0;
 }
