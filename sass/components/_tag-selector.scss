@@ -82,8 +82,10 @@
       top: 0;
       padding: 31px 28px;
       & p {
-        text-transform: capitalize;
         margin: 0 45px 0 0;
+        &:first-letter {
+          text-transform: capitalize;
+        }
         &.active {
           display: none;
         }
@@ -122,9 +124,11 @@
         display: none;
       }
       & p {
-        text-transform: capitalize;
         flex: 0 0 33.2%;
         margin: 0 0 12px 0;
+        &:first-letter {
+          text-transform: capitalize;
+        }
       }
     }
   }
