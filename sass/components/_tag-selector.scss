@@ -20,6 +20,9 @@
         background-color: #3282f7;
         .header {
           &__tag {
+            &-researcher {
+              background-color: #3282f7;
+            }
             &-choice {
               &--display {
                 &.active {
@@ -36,6 +39,9 @@
         background-color: #68d9a4;
         .header {
           &__tag {
+            &-researcher {
+              background-color: #68d9a4;
+            }
             &-choice {
               &--display {
                 &.active {
@@ -52,6 +58,9 @@
         background-color: #ed6454;
         .header {
           &__tag {
+            &-researcher {
+              background-color: #ed6454;
+            }
             &-choice {
               &--display {
                 &.active {
@@ -66,9 +75,11 @@
       }
     }
     &-researcher {
+      position: sticky;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      top: 0;
       padding: 31px 28px;
       & p {
         text-transform: capitalize;

@@ -167,12 +167,18 @@ main.active {
 .header__tag-selector[data-tag=ingredients] {
   background-color: #3282f7;
 }
+.header__tag-selector[data-tag=ingredients] .header__tag-researcher {
+  background-color: #3282f7;
+}
 .header__tag-selector[data-tag=ingredients] .header__tag-choice--display.active {
   background-color: #3282f7;
   border-radius: 4px;
   display: block;
 }
 .header__tag-selector[data-tag=appareils] {
+  background-color: #68d9a4;
+}
+.header__tag-selector[data-tag=appareils] .header__tag-researcher {
   background-color: #68d9a4;
 }
 .header__tag-selector[data-tag=appareils] .header__tag-choice--display.active {
@@ -183,15 +189,20 @@ main.active {
 .header__tag-selector[data-tag=ustensiles] {
   background-color: #ed6454;
 }
+.header__tag-selector[data-tag=ustensiles] .header__tag-researcher {
+  background-color: #ed6454;
+}
 .header__tag-selector[data-tag=ustensiles] .header__tag-choice--display.active {
   background-color: #ed6454;
   border-radius: 4px;
   display: block;
 }
 .header__tag-researcher {
+  position: sticky;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  top: 0;
   padding: 31px 28px;
 }
 .header__tag-researcher p {
