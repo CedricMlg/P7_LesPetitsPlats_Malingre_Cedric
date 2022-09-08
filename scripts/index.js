@@ -1,6 +1,6 @@
 import { recipes } from "../data/recipes.js";
 import { RecipeCard } from "./factories/RecipeCard.js";
-import { TagSelector } from "./factories/TagSelectorBis.js";
+import { TagSelector } from "./factories/TagSelector.js";
 
 window.addEventListener("load", () => refreshTagAndRecipe(recipes));
 

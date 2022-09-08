@@ -67,7 +67,7 @@ class Tags {
       selectorResearch.querySelector("svg").classList.add("active");
       selectorDisplay.classList.add("active");
 
-      if(svg.dataset.clicked === "true" && svg.contains(element.target)) {
+      if (svg.dataset.clicked === "true" && svg.contains(element.target)) {
         closeTagSelector();
         svg.dataset.clicked = "false";
       } else {
@@ -87,8 +87,7 @@ class Tags {
     }
 
     function checkClickLocation(element) {
-      if (element.target === svg ||
-        svg.contains(element.target)) {
+      if (element.target === svg || svg.contains(element.target)) {
         closeTagSelector();
         return;
       } else if (
