@@ -259,8 +259,8 @@ main.active {
   display: flex;
   align-items: center;
   border-radius: 4px;
-  margin: 0 25px 0 0;
-  padding: 12px;
+  margin: 0 25px 25px 0;
+  padding: 12px 16px;
   width: fit-content;
   color: white;
 }
@@ -268,9 +268,9 @@ main.active {
   margin: 0 12px;
 }
 .header__tag svg {
-  margin: 0 5px;
-  width: 26px;
-  height: 26px;
+  margin: 0 4px;
+  width: 30px;
+  height: 24px;
   fill: white;
 }
 .header__tag[data-tag=ingredients] {
@@ -302,7 +302,7 @@ header {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: 0 0 25px 0;
+  margin: 0 0 10px 0;
 }
 .header__block-tag-selector {
   display: flex;
