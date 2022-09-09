@@ -7,7 +7,6 @@
       width: fit-content;
       max-width: 52%;
       height: fit-content;
-      max-height: 460px;
       overflow: hidden;
       margin: 0 50px 60px 0;
       &:hover {
@@ -122,6 +121,7 @@
       padding: 10px 20px 5px 20px;
       &--display {
         display: none;
+        height: 371px;
       }
       & p {
         flex: 0 0 33.2%;

@@ -154,7 +154,6 @@ main.active {
   width: fit-content;
   max-width: 52%;
   height: fit-content;
-  max-height: 460px;
   overflow: hidden;
   margin: 0 50px 60px 0;
 }
@@ -246,6 +245,7 @@ main.active {
 }
 .header__tag-choice--display {
   display: none;
+  height: 371px;
 }
 .header__tag-choice p {
   flex: 0 0 33.2%;
