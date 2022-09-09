@@ -1,9 +1,8 @@
+import { Tag } from "./Tag.js";
+
 class TagSelector {
   constructor(itemsArray, category) {
     let sortedItemArray = [];
-    const blockTagSelector = document.querySelector(
-      ".header__block-tag-selector"
-    );
 
     for (const item of itemsArray) {
       sortedItemArray.push(
@@ -42,6 +41,9 @@ class TagSelector {
           <div class="header__tag-choice"></div>
           </div>`;
 
+    const blockTagSelector = document.querySelector(
+      ".header__block-tag-selector"
+    );
     const selectorResearch = templateTagSelector.querySelector(
       ".header__tag-researcher"
     );
@@ -100,6 +102,8 @@ class TagSelector {
         return;
       }
     }
+
+    new Tag(templateTagSelector, category);
 
     blockTagSelector.appendChild(templateTagSelector);
   }
