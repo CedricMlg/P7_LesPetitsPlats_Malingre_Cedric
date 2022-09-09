@@ -68,6 +68,7 @@ class TagSelector {
       selectorResearch.querySelector("input").classList.add("active");
       selectorResearch.querySelector("svg").classList.add("active");
       selectorDisplay.classList.add("active");
+      document.querySelector("main").classList.add("active");
 
       if (svg.dataset.clicked === "true" && svg.contains(element.target)) {
         closeTagSelector();
@@ -84,6 +85,7 @@ class TagSelector {
       selectorResearch.querySelector("input").classList.remove("active");
       selectorResearch.querySelector("svg").classList.remove("active");
       selectorDisplay.classList.remove("active");
+      document.querySelector("main").classList.remove("active");
 
       document.removeEventListener("click", checkClickLocation, true);
     }
