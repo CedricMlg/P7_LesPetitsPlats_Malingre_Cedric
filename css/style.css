@@ -273,13 +273,13 @@ main.active {
   height: 26px;
   fill: white;
 }
-.header__tag[data-tag=ingredient] {
+.header__tag[data-tag=ingredients] {
   background-color: #3282f7;
 }
-.header__tag[data-tag=device] {
+.header__tag[data-tag=appareils] {
   background-color: #68d9a4;
 }
-.header__tag[data-tag=ustensil] {
+.header__tag[data-tag=ustensiles] {
   background-color: #ed6454;
 }
 
