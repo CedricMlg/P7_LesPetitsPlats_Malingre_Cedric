@@ -108,6 +108,7 @@
         fill: white;
         height: 20px;
         width: 24px;
+        cursor: pointer;
         &.active {
           transform: rotate(-180deg);
         }
@@ -126,6 +127,7 @@
       & p {
         flex: 0 0 33.2%;
         margin: 0 0 12px 0;
+        cursor: pointer;
         &:first-letter {
           text-transform: capitalize;
         }

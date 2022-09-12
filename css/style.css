@@ -232,6 +232,7 @@ main.active {
   fill: white;
   height: 20px;
   width: 24px;
+  cursor: pointer;
 }
 .header__tag-researcher svg.active {
   transform: rotate(-180deg);
@@ -250,6 +251,7 @@ main.active {
 .header__tag-choice p {
   flex: 0 0 33.2%;
   margin: 0 0 12px 0;
+  cursor: pointer;
 }
 .header__tag-choice p:first-letter {
   text-transform: capitalize;
@@ -272,6 +274,7 @@ main.active {
   width: 30px;
   height: 24px;
   fill: white;
+  cursor: pointer;
 }
 .header__tag[data-tag=ingredients] {
   background-color: #3282f7;
