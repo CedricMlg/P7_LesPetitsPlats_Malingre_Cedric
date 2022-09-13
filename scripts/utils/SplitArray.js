@@ -1,4 +1,4 @@
-import { TagSelector } from "./TagSelector.js";
+import { TagSelector } from "../factories/TagSelector.js";
 
 class SplitArray {
   constructor(recipeData) {
