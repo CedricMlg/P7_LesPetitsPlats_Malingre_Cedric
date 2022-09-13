@@ -1,11 +1,6 @@
 class RecipeCard {
-  constructor(recipesArray) {
+  constructor() {
     this.blockRecipeCards = document.querySelector(".main__block-recipe-cards");
-    this.blockRecipeCards.innerHTML = "";
-
-    for (const recipe of recipesArray) {
-      this.createRecipeCard(recipe);
-    }
   }
 
   createRecipeCard(recipe) {

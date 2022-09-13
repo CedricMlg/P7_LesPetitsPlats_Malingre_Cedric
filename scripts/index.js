@@ -5,6 +5,8 @@ import { SplitArray } from "./utils/SplitArray.js";
 window.addEventListener("load", () => refreshTagAndRecipe(recipes));
 
 function refreshTagAndRecipe(recipeData) {
-  new RecipeCard(recipeData);
+  for (const recipe of recipeData) {
+    new RecipeCard().createRecipeCard(recipe);
+  }
   new SplitArray(recipeData);
 }

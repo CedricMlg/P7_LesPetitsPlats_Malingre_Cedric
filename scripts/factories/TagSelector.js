@@ -2,6 +2,11 @@ import { Tag } from "./Tag.js";
 
 class TagSelector {
   constructor(itemsArray, category) {
+    this.blockTagSelector = document.querySelector(
+      ".header__block-tag-selector"
+    );
+    this.templateTagSelector = document.createElement("div");
+    this.category = category;
     let sortedItemArray = [];
 
     for (const item of itemsArray) {
@@ -16,10 +21,15 @@ class TagSelector {
 
     let uniqueItemArray = [...new Set(sortedItemArray)];
 
-    const templateTagSelector = document.createElement("div");
-    templateTagSelector.classList.add(`header__tag-selector`);
-    templateTagSelector.dataset.tag = `${category}`;
-    templateTagSelector.innerHTML = `
+    this.createTagSelector(category);
+    this.listenTagSelector();
+    this.createItemTagSelector(uniqueItemArray);
+  }
+
+  createTagSelector(category) {
+    this.templateTagSelector.classList.add(`header__tag-selector`);
+    this.templateTagSelector.dataset.tag = `${category}`;
+    this.templateTagSelector.innerHTML = `
             <div class="header__tag-researcher">
           <p>${category}</p>
           <input
@@ -41,29 +51,21 @@ class TagSelector {
           <div class="header__tag-choice"></div>
           </div>`;
 
-    const blockTagSelector = document.querySelector(
-      ".header__block-tag-selector"
-    );
-    const selectorResearch = templateTagSelector.querySelector(
+    this.blockTagSelector.appendChild(this.templateTagSelector);
+  }
+
+  listenTagSelector() {
+    const selectorResearch = this.templateTagSelector.querySelector(
       ".header__tag-researcher"
     );
-    const svg = templateTagSelector.querySelector(
+    const svg = this.templateTagSelector.querySelector(
       `.header__tag-researcher svg`
     );
-    const selectorDisplay = templateTagSelector.querySelector(
+    const selectorDisplay = this.templateTagSelector.querySelector(
       ".header__tag-choice--display"
     );
-    const itemBlock = templateTagSelector.querySelector(`.header__tag-choice`);
 
-    itemBlock.innerHTML = "";
-
-    for (const item of uniqueItemArray) {
-      const element = document.createElement("p");
-      element.innerHTML = `${item}`;
-      itemBlock.appendChild(element);
-    }
-
-    templateTagSelector.addEventListener("click", (element) => {
+    this.templateTagSelector.addEventListener("click", (element) => {
       selectorResearch.querySelector("p").classList.add("active");
       selectorResearch.querySelector("input").classList.add("active");
       selectorResearch.querySelector("svg").classList.add("active");
@@ -94,20 +96,37 @@ class TagSelector {
       if (element.target === svg || svg.contains(element.target)) {
         closeTagSelector();
         return;
-      } else if (
-        element.target === templateTagSelector ||
-        templateTagSelector.contains(element.target)
-      ) {
+      } else if (element.target === this.templateTagSelector) {
         return;
       } else {
         closeTagSelector();
         return;
       }
     }
+  }
 
-    new Tag(templateTagSelector, category);
+  createItemTagSelector(uniqueItemArray) {
+    const itemBlock =
+      this.templateTagSelector.querySelector(`.header__tag-choice`);
+    let element = null;
 
-    blockTagSelector.appendChild(templateTagSelector);
+    itemBlock.innerHTML = "";
+
+    for (const item of uniqueItemArray) {
+      element = document.createElement("p");
+      element.innerHTML = `${item}`;
+      itemBlock.appendChild(element);
+    }
+
+    const items = this.templateTagSelector.querySelectorAll(
+      `.header__tag-choice p`
+    );
+
+    items.forEach((element) => {
+      element.addEventListener("click", (event) => {
+        new Tag(event, this.category);
+      });
+    });
   }
 }
 
