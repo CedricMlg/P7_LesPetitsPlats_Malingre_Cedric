@@ -1,13 +1,12 @@
 class RecipeCard {
   constructor() {
     this.blockRecipeCards = document.querySelector(".main__block-recipe-cards");
+    this.recipeCard = document.createElement("figure");
   }
 
   createRecipeCard(recipe) {
-    const recipeCard = document.createElement("figure");
-
-    recipeCard.classList.add("main__recipe-card");
-    recipeCard.innerHTML = `
+    this.recipeCard.classList.add("main__recipe-card");
+    this.recipeCard.innerHTML = `
     <div class="main__recipe-block-img">
       <img
         class="main__recipe-img"
@@ -43,9 +42,16 @@ class RecipeCard {
       </div>
     </figcaption>`;
 
-    const recipeCardIngredients = recipeCard.querySelector(
+    this.blockRecipeCards.appendChild(this.recipeCard);
+
+    this.createIngredient(recipe)
+  }
+
+  createIngredient(recipe) {
+    const recipeCardIngredients = this.recipeCard.querySelector(
       ".main__recipe-ingredients"
     );
+
     for (const element of recipe.ingredients) {
       const ingredient = document.createElement("p");
 
@@ -59,8 +65,6 @@ class RecipeCard {
 
       recipeCardIngredients.appendChild(ingredient);
     }
-
-    this.blockRecipeCards.appendChild(recipeCard);
   }
 }
 
