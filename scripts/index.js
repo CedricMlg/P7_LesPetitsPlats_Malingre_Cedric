@@ -1,12 +1,25 @@
 import { recipes } from "../data/recipes.js";
+import { Research } from "./components/Research.js";
 import { RecipeCard } from "./factories/RecipeCard.js";
+import { ResearchArray } from "./utils/ResearchArray.js";
 import { SplitArray } from "./utils/SplitArray.js";
 
-window.addEventListener("load", () => refreshTagAndRecipe(recipes));
+const researchBar = document.querySelector(".header__searchbar-input");
 
-function refreshTagAndRecipe(recipeData) {
-  for (const recipe of recipeData) {
+window.addEventListener("load", () => {
+  for (const recipe of recipes) {
     new RecipeCard().createRecipeCard(recipe);
   }
-  new SplitArray(recipeData);
-}
+  new SplitArray(recipes);
+});
+
+researchBar.addEventListener("input", () => {
+  if(researchBar.value.length >= 3) {
+    new Research(researchBar.value).researchBar(recipes);
+  } else {
+    for (const recipe of recipes) {
+      new RecipeCard().createRecipeCard(recipe);
+    }
+  }
+});
+// new ResearchArray().updateResearchArray(recipes)
