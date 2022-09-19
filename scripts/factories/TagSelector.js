@@ -66,9 +66,7 @@ class TagSelector {
     );
 
     this.templateTagSelector.addEventListener("click", (element) => {
-      selectorResearch.querySelector("p").classList.add("active");
-      selectorResearch.querySelector("input").classList.add("active");
-      selectorResearch.querySelector("svg").classList.add("active");
+      selectorResearch.querySelector("p, input, svg").classList.add("active");
       selectorDisplay.classList.add("active");
       document.querySelector("main").classList.add("active");
 
@@ -83,9 +81,7 @@ class TagSelector {
     });
 
     function closeTagSelector() {
-      selectorResearch.querySelector("p").classList.remove("active");
-      selectorResearch.querySelector("input").classList.remove("active");
-      selectorResearch.querySelector("svg").classList.remove("active");
+      selectorResearch.querySelector("p, input, svg").classList.remove("active");
       selectorDisplay.classList.remove("active");
       document.querySelector("main").classList.remove("active");
 
