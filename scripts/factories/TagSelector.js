@@ -58,6 +58,7 @@ class TagSelector {
     const selectorResearch = this.templateTagSelector.querySelector(
       ".header__tag-researcher"
     );
+    const activables = selectorResearch.querySelectorAll("p, input, svg");
     const svg = this.templateTagSelector.querySelector(
       `.header__tag-researcher svg`
     );
@@ -66,9 +67,12 @@ class TagSelector {
     );
 
     this.templateTagSelector.addEventListener("click", (element) => {
-      selectorResearch.querySelector("p, input, svg").classList.add("active");
       selectorDisplay.classList.add("active");
       document.querySelector("main").classList.add("active");
+
+      for (const element of activables) {
+        element.classList.add("active");
+      }
 
       if (svg.dataset.clicked === "true" && svg.contains(element.target)) {
         closeTagSelector();
@@ -81,9 +85,12 @@ class TagSelector {
     });
 
     function closeTagSelector() {
-      selectorResearch.querySelector("p, input, svg").classList.remove("active");
       selectorDisplay.classList.remove("active");
       document.querySelector("main").classList.remove("active");
+
+      for (const element of activables) {
+        element.classList.remove("active");
+      }
 
       document.removeEventListener("click", checkClickLocation, true);
     }
