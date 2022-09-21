@@ -1,5 +1,5 @@
 class Tag {
-  constructor(item, category) {
+  constructor(item, tagArray, category) {
     const blockTag = document.querySelector(".header__block-tag")
 
     const templateTag = document.createElement("div");
@@ -13,6 +13,8 @@ class Tag {
         />
     </svg>`;
 
+    tagArray.push(item.target.innerText);
+    localStorage.setItem("tag", JSON.stringify(tagArray));
     const svg = templateTag.querySelector("svg");
     svg.addEventListener("click", () => {
       blockTag.removeChild(templateTag);
