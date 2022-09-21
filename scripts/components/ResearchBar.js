@@ -5,7 +5,6 @@ class ResearchBar {
   constructor(input) {
     this.input = input;
     this.formatedInput = "";
-    this.storedTagArray = JSON.parse(localStorage.tag);
   }
 
   researchBarFilter(researchArray) {
