@@ -1,5 +1,5 @@
 import { recipes } from "../data/recipes.js";
-import { Research } from "./components/Research.js";
+import { ResearchBar } from "./components/ResearchBar.js";
 import { RecipeCard } from "./factories/RecipeCard.js";
 import { ResearchArray } from "./utils/ResearchArray.js";
 import { SplitArray } from "./utils/SplitArray.js";
@@ -20,7 +20,7 @@ researchBar.addEventListener("input", () => {
   blockTagSelector.innerHTML = "";
   
   if (researchBar.value.length >= 3) {
-    new Research(researchBar.value).researchBar(recipes);
+    new ResearchBar(researchBar.value).researchBarFilter(recipes);
   } else {
     for (const recipe of recipes) {
       new RecipeCard().createRecipeCard(recipe);

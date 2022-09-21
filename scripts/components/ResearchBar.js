@@ -1,15 +1,14 @@
 import { RecipeCard } from "../factories/RecipeCard.js";
 import { SplitArray } from "../utils/SplitArray.js";
 
-class Research {
+class ResearchBar {
   constructor(input) {
     this.input = input;
     this.formatedInput = "";
-    let storedTagArray = JSON.parse(localStorage.tag);
-    console.log(storedTagArray)
+    this.storedTagArray = JSON.parse(localStorage.tag);
   }
 
-  researchBar(researchArray) {
+  researchBarFilter(researchArray) {
     this.formatedInput = this.input
       .toLowerCase()
       .normalize("NFD")
@@ -41,4 +40,4 @@ class Research {
   }
 }
 
-export { Research };
+export { ResearchBar };
