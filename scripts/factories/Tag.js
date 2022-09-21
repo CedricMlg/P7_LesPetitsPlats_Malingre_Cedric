@@ -1,6 +1,6 @@
 class Tag {
   constructor(item, tagArray, category) {
-    const blockTag = document.querySelector(".header__block-tag")
+    const blockTag = document.querySelector(".header__block-tag");
 
     const templateTag = document.createElement("div");
     templateTag.classList.add("header__tag");
@@ -14,12 +14,15 @@ class Tag {
     </svg>`;
 
     tagArray.push(item.target.innerText);
-    localStorage.setItem("tag", JSON.stringify(tagArray));
+    
     const svg = templateTag.querySelector("svg");
-    svg.addEventListener("click", () => {
+    svg.addEventListener("click", (event) => {
+      const index = tagArray.indexOf(`${item.target.innerText}`);
+      tagArray.splice(index, 1);
       blockTag.removeChild(templateTag);
     });
 
+    localStorage.setItem("tag", JSON.stringify(tagArray));
     blockTag.appendChild(templateTag);
   }
 }
