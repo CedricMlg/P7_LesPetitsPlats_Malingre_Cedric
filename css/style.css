@@ -269,6 +269,9 @@ main.active {
 .header__tag p {
   margin: 0 12px;
 }
+.header__tag p:first-letter {
+  text-transform: capitalize;
+}
 .header__tag svg {
   margin: 0 4px;
   width: 30px;

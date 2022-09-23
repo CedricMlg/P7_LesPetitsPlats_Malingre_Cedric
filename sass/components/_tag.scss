@@ -9,6 +9,9 @@
     color: white;
     & p {
       margin: 0 12px;
+      &:first-letter {
+        text-transform: capitalize;
+      }
     }
     & svg {
       margin: 0 4px;
