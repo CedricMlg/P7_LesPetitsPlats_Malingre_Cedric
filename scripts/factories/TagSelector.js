@@ -19,23 +19,19 @@ class TagSelector {
     }
     sortedItemArray.sort();
 
-    let uniqueItemArray = [...new Set(sortedItemArray)];
-
-    this.createTagSelector(category);
-    this.listenTagSelector();
-    this.createItemTagSelector(uniqueItemArray);
+    this.uniqueItemArray = [...new Set(sortedItemArray)];
   }
 
-  createTagSelector(category) {
+  createTagSelector() {
     this.templateTagSelector.classList.add(`header__tag-selector`);
-    this.templateTagSelector.dataset.tag = `${category}`;
+    this.templateTagSelector.dataset.tag = `${this.category}`;
     this.templateTagSelector.innerHTML = `
             <div class="header__tag-researcher">
-          <p>${category}</p>
+          <p>${this.category}</p>
           <input
             type="text"
-            placeholder="Rechercher un ${category}"
-            name="search_${category}"
+            placeholder="Rechercher un ${this.category}"
+            name="search_${this.category}"
           />
           <svg
             viewBox="0 0 16 11"
@@ -52,6 +48,8 @@ class TagSelector {
           </div>`;
 
     this.blockTagSelector.appendChild(this.templateTagSelector);
+    this.listenTagSelector();
+    this.createItemTagSelector();
   }
 
   listenTagSelector() {
@@ -108,23 +106,22 @@ class TagSelector {
     }
   }
 
-  createItemTagSelector(uniqueItemArray) {
-    const itemBlock =
-      this.templateTagSelector.querySelector(`.header__tag-choice`);
+  createItemTagSelector() {
+    const itemBlock = document.querySelector(
+      `[data-tag="${this.category}"] .header__tag-choice`
+    );
     let element = null;
-    let tagArray = []
+    let tagArray = [];
 
     itemBlock.innerHTML = "";
 
-    for (const item of uniqueItemArray) {
+    for (const item of this.uniqueItemArray) {
       element = document.createElement("p");
       element.innerHTML = `${item}`;
       itemBlock.appendChild(element);
     }
 
-    const items = this.templateTagSelector.querySelectorAll(
-      `.header__tag-choice p`
-    );
+    const items = itemBlock.querySelectorAll(`.header__tag-choice p`);
 
     items.forEach((element) => {
       element.addEventListener("click", (event) => {

@@ -2,6 +2,9 @@ import { TagSelector } from "../factories/TagSelector.js";
 
 class SplitArray {
   constructor(recipeData) {
+    const blockTagSelector = document.querySelector(
+      ".header__block-tag-selector"
+    );
     let ingredientsArray = [];
     let applianceArray = [];
     let ustensilsArray = [];
@@ -16,9 +19,15 @@ class SplitArray {
       }
     }
 
-    new TagSelector(ingredientsArray, "ingredients");
-    new TagSelector(applianceArray, "appareils");
-    new TagSelector(ustensilsArray, "ustensiles");
+    if (blockTagSelector.childNodes.length == 0) {
+      new TagSelector(ingredientsArray, "ingredients").createTagSelector();
+      new TagSelector(applianceArray, "appareils").createTagSelector();
+      new TagSelector(ustensilsArray, "ustensiles").createTagSelector();
+    } else {
+      new TagSelector(ingredientsArray, "ingredients").createItemTagSelector();
+      new TagSelector(applianceArray, "appareils").createItemTagSelector();
+      new TagSelector(ustensilsArray, "ustensiles").createItemTagSelector();
+    }
   }
 }
 

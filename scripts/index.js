@@ -6,20 +6,32 @@ import { ResearchArray } from "./utils/ResearchArray.js";
 import { SplitArray } from "./utils/SplitArray.js";
 
 const researchBar = document.querySelector(".header__searchbar-input");
+const blockTag = document.querySelector(".header__block-tag");
 const blockTagSelector = document.querySelector(".header__block-tag-selector");
 const blockRecipeCards = document.querySelector(".main__block-recipe-cards");
-const observer = new MutationObserver(function(mutations_list) {
-	mutations_list.forEach(function(mutation) {
-		mutation.addedNodes.forEach(function(added_node) {
-      new ResearchTag(added_node.dataset.tag)
-		});
-    mutation.removedNodes.forEach(function(added_node) {
-      new ResearchTag(added_node.dataset.tag)
-		});
-	});
+const observer = new MutationObserver(function (mutations_list) {
+  mutations_list.forEach(function (mutation) {
+    blockRecipeCards.innerHTML = "";
+    // blockTagSelector.innerHTML = "";
+
+    mutation.addedNodes.forEach(function (added_node) {
+      new ResearchTag(added_node.dataset.tag).researchTagFilter(recipes);
+    });
+    mutation.removedNodes.forEach(function (added_node) {
+      if (blockTag.innerText === "") {
+        for (const recipe of recipes) {
+          new RecipeCard().createRecipeCard(recipe);
+        }
+        new SplitArray(recipes);
+      }
+    });
+  });
 });
 
-observer.observe(document.querySelector(".header__block-tag"), { subtree: false, childList: true });
+observer.observe(document.querySelector(".header__block-tag"), {
+  subtree: false,
+  childList: true,
+});
 
 window.addEventListener("load", () => {
   for (const recipe of recipes) {
@@ -31,7 +43,7 @@ window.addEventListener("load", () => {
 researchBar.addEventListener("input", () => {
   blockRecipeCards.innerHTML = "";
   blockTagSelector.innerHTML = "";
-  
+
   if (researchBar.value.length >= 3) {
     new ResearchBar(researchBar.value).researchBarFilter(recipes);
   } else {
