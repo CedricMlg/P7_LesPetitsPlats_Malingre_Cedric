@@ -2,7 +2,7 @@ import { recipes } from "../data/recipes.js";
 import { ResearchBar } from "./components/ResearchBar.js";
 import { ResearchTag } from "./components/ResearchTag.js";
 import { RecipeCard } from "./factories/RecipeCard.js";
-import { ResearchArray } from "./utils/ResearchArray.js";
+// import { ResearchArray } from "./utils/ResearchArray.js";
 import { SplitArray } from "./utils/SplitArray.js";
 
 const researchBar = document.querySelector(".header__searchbar-input");
@@ -12,7 +12,6 @@ const blockRecipeCards = document.querySelector(".main__block-recipe-cards");
 const observer = new MutationObserver(function (mutations_list) {
   mutations_list.forEach(function (mutation) {
     blockRecipeCards.innerHTML = "";
-    // blockTagSelector.innerHTML = "";
 
     mutation.addedNodes.forEach(function (added_node) {
       new ResearchTag(added_node.dataset.tag).researchTagFilter(recipes);
@@ -23,6 +22,8 @@ const observer = new MutationObserver(function (mutations_list) {
           new RecipeCard().createRecipeCard(recipe);
         }
         new SplitArray(recipes);
+      } else {
+        new ResearchTag(added_node.dataset.tag).researchTagFilter(recipes);
       }
     });
   });
@@ -38,6 +39,7 @@ window.addEventListener("load", () => {
     new RecipeCard().createRecipeCard(recipe);
   }
   new SplitArray(recipes);
+  localStorage.clear();
 });
 
 researchBar.addEventListener("input", () => {

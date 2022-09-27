@@ -1,5 +1,4 @@
 import { RecipeCard } from "../factories/RecipeCard.js";
-import { TagSelector } from "../factories/TagSelector.js";
 import { SplitArray } from "../utils/SplitArray.js";
 
 class ResearchTag {

@@ -1,6 +1,11 @@
 class Tag {
-  constructor(item, tagArray, category) {
+  constructor(item, category) {
     const blockTag = document.querySelector(".header__block-tag");
+    this.tagArray =
+      localStorage.getItem("tag") === null
+        ? []
+        : JSON.parse(localStorage.getItem("tag"));
+    let tagRemove = null;
 
     const templateTag = document.createElement("div");
     templateTag.classList.add("header__tag");
@@ -13,16 +18,23 @@ class Tag {
         />
     </svg>`;
 
-    tagArray.push(item.target.innerText);
-    
+    this.tagArray.push(item.target.innerText);
+
     const svg = templateTag.querySelector("svg");
-    svg.addEventListener("click", (event) => {
-      const index = tagArray.indexOf(`${item.target.innerText}`);
-      tagArray.splice(index, 1);
+    svg.addEventListener("click", () => {
+      this.tagArray =
+        localStorage.getItem("tag") === null
+          ? []
+          : JSON.parse(localStorage.getItem("tag"));
+      tagRemove = this.tagArray.filter((tag) => tag !== item.target.innerText);
+      console.log(tagRemove);
+      localStorage.setItem("tag", JSON.stringify(tagRemove));
+
       blockTag.removeChild(templateTag);
     });
 
-    localStorage.setItem("tag", JSON.stringify(tagArray));
+    localStorage.setItem("tag", JSON.stringify(this.tagArray));
+
     blockTag.appendChild(templateTag);
   }
 }

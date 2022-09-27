@@ -111,7 +111,6 @@ class TagSelector {
       `[data-tag="${this.category}"] .header__tag-choice`
     );
     let element = null;
-    let tagArray = [];
 
     itemBlock.innerHTML = "";
 
@@ -125,7 +124,7 @@ class TagSelector {
 
     items.forEach((element) => {
       element.addEventListener("click", (event) => {
-        new Tag(event, tagArray, this.category);
+        new Tag(event, this.category);
       });
     });
   }
