@@ -27,7 +27,7 @@ class Tag {
           ? []
           : JSON.parse(localStorage.getItem("tag"));
       tagRemove = this.tagArray.filter((tag) => tag !== item.target.innerText);
-      console.log(tagRemove);
+
       localStorage.setItem("tag", JSON.stringify(tagRemove));
 
       blockTag.removeChild(templateTag);
