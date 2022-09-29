@@ -5,6 +5,10 @@ class ResearchTag {
   constructor(category) {
     this.category = category;
     this.storedTagArray = JSON.parse(localStorage.tag);
+    this.storedResearchArray =
+      localStorage.getItem("research") === null
+        ? []
+        : JSON.parse(localStorage.getItem("research"));
   }
 
   researchTagFilter(researchArray) {

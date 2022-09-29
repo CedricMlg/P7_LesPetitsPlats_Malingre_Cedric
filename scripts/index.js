@@ -9,6 +9,7 @@ const researchBar = document.querySelector(".header__searchbar-input");
 const blockTag = document.querySelector(".header__block-tag");
 const blockTagSelector = document.querySelector(".header__block-tag-selector");
 const blockRecipeCards = document.querySelector(".main__block-recipe-cards");
+
 const observer = new MutationObserver(function (mutations_list) {
   mutations_list.forEach(function (mutation) {
     blockRecipeCards.innerHTML = "";
