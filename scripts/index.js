@@ -12,14 +12,18 @@ const blockRecipeCards = document.querySelector(".main__block-recipe-cards");
 
 const observer = new MutationObserver(function (mutations_list) {
   let storedResearchArray = JSON.parse(localStorage.getItem("research"));
+  let storedTagArray = JSON.parse(localStorage.getItem("tag"));
+
   mutations_list.forEach(function (mutation) {
     blockRecipeCards.innerHTML = "";
 
     mutation.addedNodes.forEach(function (added_node) {
-      if(storedResearchArray == null || []) {
-        new ResearchTag(added_node.dataset.tag).researchTagFilter(recipes);
+      if(storedResearchArray == null || storedResearchArray.length == 0) {
+        new ResearchTag(added_node.dataset.tag, storedTagArray).researchTagFilter(recipes);
       } else {
-        new ResearchTag(added_node.dataset.tag).researchTagFilter(storedResearchArray);
+        for (const tag of storedTagArray) {
+          new ResearchTag(added_node.dataset.tag, tag).researchTagFilter(storedResearchArray);
+        }
       }
     });
     mutation.removedNodes.forEach(function (added_node) {
@@ -32,7 +36,12 @@ const observer = new MutationObserver(function (mutations_list) {
         storedResearchArray.splice(0, storedResearchArray.length);
         localStorage.setItem("research", JSON.stringify(storedResearchArray));
       } else {
-        new ResearchTag(added_node.dataset.tag).researchTagFilter(recipes);
+        storedResearchArray = recipes;
+        for (const tag of storedTagArray) {
+          console.log(tag)
+          new ResearchTag(added_node.dataset.tag, tag).researchTagFilter(storedResearchArray);
+          storedResearchArray = JSON.parse(localStorage.getItem("research"));
+        }
       }
     });
   });

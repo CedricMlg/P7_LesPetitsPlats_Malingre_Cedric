@@ -5,6 +5,10 @@ class ResearchBar {
   constructor(input) {
     this.input = input;
     this.formatedInput = "";
+    this.storedResearchArray =
+    localStorage.getItem("research") === null
+      ? []
+      : JSON.parse(localStorage.getItem("research"));
   }
 
   researchBarFilter(researchArray) {
