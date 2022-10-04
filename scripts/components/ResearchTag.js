@@ -2,8 +2,7 @@ import { RecipeCard } from "../factories/RecipeCard.js";
 import { SplitArray } from "../utils/SplitArray.js";
 
 class ResearchTag {
-  constructor(category, tag) {
-    this.category = category;
+  constructor(tag) {
     this.storedTagArray = tag;
     this.storedResearchArray =
       localStorage.getItem("research") === null

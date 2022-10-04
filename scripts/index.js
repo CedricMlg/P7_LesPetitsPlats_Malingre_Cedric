@@ -15,21 +15,16 @@ const observer = new MutationObserver(function (mutations_list) {
   let storedTagArray = JSON.parse(localStorage.getItem("tag"));
 
   mutations_list.forEach(function (mutation) {
-    mutation.addedNodes.forEach(function (added_node) {
+    mutation.addedNodes.forEach(function () {
       if (storedResearchArray == null || storedResearchArray.length == 0) {
-        new ResearchTag(
-          added_node.dataset.tag,
-          storedTagArray
-        ).researchTagFilter(recipes);
+        new ResearchTag(storedTagArray).researchTagFilter(recipes);
       } else {
         for (const tag of storedTagArray) {
-          new ResearchTag(added_node.dataset.tag, tag).researchTagFilter(
-            storedResearchArray
-          );
+          new ResearchTag(tag).researchTagFilter(storedResearchArray);
         }
       }
     });
-    mutation.removedNodes.forEach(function (added_node) {
+    mutation.removedNodes.forEach(function () {
       if (blockTag.innerText === "") {
         for (const recipe of recipes) {
           new RecipeCard().createRecipeCard(recipe);
@@ -41,9 +36,7 @@ const observer = new MutationObserver(function (mutations_list) {
       } else {
         storedResearchArray = recipes;
         for (const tag of storedTagArray) {
-          new ResearchTag(added_node.dataset.tag, tag).researchTagFilter(
-            storedResearchArray
-          );
+          new ResearchTag(tag).researchTagFilter(storedResearchArray);
           storedResearchArray = JSON.parse(localStorage.getItem("research"));
         }
       }
