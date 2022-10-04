@@ -15,8 +15,6 @@ const observer = new MutationObserver(function (mutations_list) {
   let storedTagArray = JSON.parse(localStorage.getItem("tag"));
 
   mutations_list.forEach(function (mutation) {
-    blockRecipeCards.innerHTML = "";
-
     mutation.addedNodes.forEach(function (added_node) {
       if (storedResearchArray == null || storedResearchArray.length == 0) {
         new ResearchTag(
