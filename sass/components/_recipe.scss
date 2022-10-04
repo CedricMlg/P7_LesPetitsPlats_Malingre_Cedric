@@ -3,7 +3,7 @@
     &-card {
       margin: 0;
       width: 100%;
-      height: min-content;
+      height: 100%;
     }
     &-block {
       &-img {
@@ -19,6 +19,7 @@
     }
     &-caption {
       display: block;
+      height: 200px;
       border-radius: 0 0 5px 5px;
       background-color: #e7e7e7;
       padding: 22px;
@@ -54,7 +55,12 @@
       overflow-wrap: break-word;
     }
     &-description {
+      overflow: hidden;
+      height: 92px;
       width: 48%;
+      &:hover {
+        overflow: auto;
+      }
     }
   }
 }
