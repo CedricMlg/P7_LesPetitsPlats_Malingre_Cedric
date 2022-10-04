@@ -18,11 +18,16 @@ const observer = new MutationObserver(function (mutations_list) {
     blockRecipeCards.innerHTML = "";
 
     mutation.addedNodes.forEach(function (added_node) {
-      if(storedResearchArray == null || storedResearchArray.length == 0) {
-        new ResearchTag(added_node.dataset.tag, storedTagArray).researchTagFilter(recipes);
+      if (storedResearchArray == null || storedResearchArray.length == 0) {
+        new ResearchTag(
+          added_node.dataset.tag,
+          storedTagArray
+        ).researchTagFilter(recipes);
       } else {
         for (const tag of storedTagArray) {
-          new ResearchTag(added_node.dataset.tag, tag).researchTagFilter(storedResearchArray);
+          new ResearchTag(added_node.dataset.tag, tag).researchTagFilter(
+            storedResearchArray
+          );
         }
       }
     });
@@ -38,8 +43,9 @@ const observer = new MutationObserver(function (mutations_list) {
       } else {
         storedResearchArray = recipes;
         for (const tag of storedTagArray) {
-          console.log(tag)
-          new ResearchTag(added_node.dataset.tag, tag).researchTagFilter(storedResearchArray);
+          new ResearchTag(added_node.dataset.tag, tag).researchTagFilter(
+            storedResearchArray
+          );
           storedResearchArray = JSON.parse(localStorage.getItem("research"));
         }
       }
