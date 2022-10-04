@@ -7,14 +7,21 @@
       width: fit-content;
       max-width: 52%;
       height: fit-content;
+      overflow: hidden;
       margin: 0 50px 60px 0;
+      &:hover {
+        overflow-y: auto;
+      }
       &.active {
         margin: 0 50px 120px 0;
       }
-      &[data-tag="ingredient"] {
+      &[data-tag="ingredients"] {
         background-color: #3282f7;
         .header {
           &__tag {
+            &-researcher {
+              background-color: #3282f7;
+            }
             &-choice {
               &--display {
                 &.active {
@@ -27,10 +34,13 @@
           }
         }
       }
-      &[data-tag="appliance"] {
+      &[data-tag="appareils"] {
         background-color: #68d9a4;
         .header {
           &__tag {
+            &-researcher {
+              background-color: #68d9a4;
+            }
             &-choice {
               &--display {
                 &.active {
@@ -43,10 +53,13 @@
           }
         }
       }
-      &[data-tag="ustensil"] {
+      &[data-tag="ustensiles"] {
         background-color: #ed6454;
         .header {
           &__tag {
+            &-researcher {
+              background-color: #ed6454;
+            }
             &-choice {
               &--display {
                 &.active {
@@ -61,12 +74,17 @@
       }
     }
     &-researcher {
+      position: sticky;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      top: 0;
       padding: 31px 28px;
       & p {
         margin: 0 45px 0 0;
+        &:first-letter {
+          text-transform: capitalize;
+        }
         &.active {
           display: none;
         }
@@ -89,7 +107,8 @@
       & svg {
         fill: white;
         height: 20px;
-        width: 19px;
+        width: 24px;
+        cursor: pointer;
         &.active {
           transform: rotate(-180deg);
         }
@@ -103,10 +122,15 @@
       padding: 10px 20px 5px 20px;
       &--display {
         display: none;
+        height: 371px;
       }
       & p {
-        flex: 0 0 33.2%;
+        flex: 0 0 27%;
         margin: 0 0 12px 0;
+        cursor: pointer;
+        &:first-letter {
+          text-transform: capitalize;
+        }
       }
     }
   }
