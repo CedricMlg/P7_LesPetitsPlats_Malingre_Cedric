@@ -6,18 +6,21 @@ class ResearchBar {
     this.input = input;
     this.formatedInput = "";
     this.storedResearchArray =
-    localStorage.getItem("research") === null
-      ? []
-      : JSON.parse(localStorage.getItem("research"));
+      localStorage.getItem("research") === null
+        ? []
+        : JSON.parse(localStorage.getItem("research"));
+    this.blockRecipeCards = document.querySelector(".main__block-recipe-cards");
   }
 
   researchBarFilter(researchArray) {
+    this.blockRecipeCards.innerHTML = "";
+    let result = [];
+
     this.formatedInput = this.input
       .toLowerCase()
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "");
 
-    let result = [];
     result = researchArray.filter(
       (item) =>
         item.description
@@ -28,16 +31,16 @@ class ResearchBar {
     );
 
     if (result.length === 0) {
-      for (const recipe of researchArray) {
-        result = recipe.ingredients.filter(
-          (item) =>
-            item.ingredient
+      result = researchArray.filter((item) => {
+        return item.ingredients.some(
+          (element) =>
+            element.ingredient
               .toLowerCase()
               .normalize("NFD")
               .replace(/[\u0300-\u036f]/g, "")
               .indexOf(`${this.formatedInput}`) !== -1
         );
-      }
+      });
 
       if (result.length === 0) {
         result = researchArray.filter(
@@ -51,10 +54,14 @@ class ResearchBar {
       }
     }
 
+    this.storedResearchArray = result;
+
     for (const recipe of result) {
       new RecipeCard().createRecipeCard(recipe);
     }
     new SplitArray(result);
+
+    localStorage.setItem("research", JSON.stringify(this.storedResearchArray));
   }
 }
 
