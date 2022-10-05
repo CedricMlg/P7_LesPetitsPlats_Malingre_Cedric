@@ -24,9 +24,9 @@ class SplitArray {
       new TagSelector(applianceArray, "appareils").createTagSelector();
       new TagSelector(ustensilsArray, "ustensiles").createTagSelector();
     } else {
-      new TagSelector(ingredientsArray, "ingredients").createItemTagSelector();
-      new TagSelector(applianceArray, "appareils").createItemTagSelector();
-      new TagSelector(ustensilsArray, "ustensiles").createItemTagSelector();
+      new TagSelector(ingredientsArray, "ingredients").createItemTagSelector(ingredientsArray);
+      new TagSelector(applianceArray, "appareils").createItemTagSelector(applianceArray);
+      new TagSelector(ustensilsArray, "ustensiles").createItemTagSelector(ustensilsArray);
     }
   }
 }

@@ -15,7 +15,7 @@ const observer = new MutationObserver(function (mutations_list) {
   storedResearchArray = JSON.parse(localStorage.getItem("research"));
   storedTagArray = JSON.parse(localStorage.getItem("tag"));
   blockRecipeCards.innerHTML = "";
-
+  
   mutations_list.forEach(function (mutation) {
     mutation.addedNodes.forEach(function () {
       if (storedResearchArray == null || storedResearchArray.length == 0) {
@@ -50,7 +50,7 @@ const observer = new MutationObserver(function (mutations_list) {
   });
 });
 
-observer.observe(document.querySelector(".header__block-tag"), {
+observer.observe(blockTag, {
   subtree: false,
   childList: true,
 });

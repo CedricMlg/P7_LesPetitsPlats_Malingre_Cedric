@@ -1,3 +1,4 @@
+import { ResearchBarTag } from "../components/ResearchBarTag.js";
 import { Tag } from "./Tag.js";
 
 class TagSelector {
@@ -7,19 +8,7 @@ class TagSelector {
     );
     this.templateTagSelector = document.createElement("div");
     this.category = category;
-    let sortedItemArray = [];
-
-    for (const item of itemsArray) {
-      sortedItemArray.push(
-        item
-          .toLowerCase()
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "")
-      );
-    }
-    sortedItemArray.sort();
-
-    this.uniqueItemArray = [...new Set(sortedItemArray)];
+    this.itemsArray = itemsArray;
   }
 
   createTagSelector() {
@@ -49,7 +38,8 @@ class TagSelector {
 
     this.blockTagSelector.appendChild(this.templateTagSelector);
     this.listenTagSelector();
-    this.createItemTagSelector();
+    this.listenResearchBarTagSelector();
+    this.createItemTagSelector(this.itemsArray);
   }
 
   listenTagSelector() {
@@ -106,15 +96,72 @@ class TagSelector {
     }
   }
 
-  createItemTagSelector() {
+  listenResearchBarTagSelector() {
+    const researchBarTag = this.templateTagSelector.querySelector(
+      ".header__tag-researcher input"
+    );
+    const itemBlock = document.querySelector(
+      `[data-tag="${this.category}"] .header__tag-choice`
+    );
+    let itemsArray = [];
+
+    const observer = new MutationObserver(function (mutations_list) {
+      itemsArray = [];
+      mutations_list.forEach(function (mutation) {
+        mutation.addedNodes.forEach(function () {
+          itemBlock
+            .querySelectorAll("p")
+            .forEach((item) => itemsArray.push(item.innerText));
+          mutation.removedNodes.forEach(function () {
+            itemBlock
+              .querySelectorAll("p")
+              .forEach((item) => itemsArray.push(item.innerText));
+          });
+        });
+      });
+    });
+
+    observer.observe(document.querySelector(".header__block-tag"), {
+      subtree: false,
+      childList: true,
+    });
+
+    researchBarTag.addEventListener("input", () => {
+      if (itemsArray.length == 0) {
+        itemBlock
+          .querySelectorAll("p")
+          .forEach((item) => itemsArray.push(item.innerText));
+      }
+
+      new ResearchBarTag(
+        researchBarTag.value,
+        this.category
+      ).researchBarTagFilter(itemsArray);
+    });
+  }
+
+  createItemTagSelector(itemsArray) {
     const itemBlock = document.querySelector(
       `[data-tag="${this.category}"] .header__tag-choice`
     );
     let element = null;
+    let sortedItemArray = [];
+    let uniqueItemArray = [];
+
+    for (const item of itemsArray) {
+      sortedItemArray.push(
+        item
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+      );
+    }
+    sortedItemArray.sort();
+    uniqueItemArray = [...new Set(sortedItemArray)];
 
     itemBlock.innerHTML = "";
 
-    for (const item of this.uniqueItemArray) {
+    for (const item of uniqueItemArray) {
       element = document.createElement("p");
       element.innerHTML = `${item}`;
       itemBlock.appendChild(element);
