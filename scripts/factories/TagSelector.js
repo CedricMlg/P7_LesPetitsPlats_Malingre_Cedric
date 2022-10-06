@@ -103,6 +103,7 @@ class TagSelector {
     const itemBlock = document.querySelector(
       `[data-tag="${this.category}"] .header__tag-choice`
     );
+    const researchBar = document.querySelector(".header__searchbar-input");
     let itemsArray = [];
 
     const observer = new MutationObserver(function (mutations_list) {
@@ -124,6 +125,12 @@ class TagSelector {
     observer.observe(document.querySelector(".header__block-tag"), {
       subtree: false,
       childList: true,
+    });
+
+    researchBar.addEventListener("input", () => {
+      itemBlock
+        .querySelectorAll("p")
+        .forEach((item) => itemsArray.push(item.innerText));
     });
 
     researchBarTag.addEventListener("input", () => {
