@@ -1,5 +1,6 @@
 import { RecipeCard } from "../factories/RecipeCard.js";
 import { SplitArray } from "../utils/SplitArray.js";
+import { Utils } from "../utils/Utils.js";
 
 class ResearchBar {
   constructor(input) {
@@ -16,40 +17,27 @@ class ResearchBar {
     this.blockRecipeCards.innerHTML = "";
     let result = [];
 
-    this.formatedInput = this.input
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "");
+    this.formatedInput = Utils.normalizeText(this.input);
 
     result = researchArray.filter(
       (item) =>
-        item.description
-          .toLowerCase()
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "")
-          .indexOf(`${this.formatedInput}`) !== -1
+        Utils.normalizeText(item.description).indexOf(this.formatedInput) !== -1
     );
 
     if (result.length === 0) {
       result = researchArray.filter((item) => {
         return item.ingredients.some(
           (element) =>
-            element.ingredient
-              .toLowerCase()
-              .normalize("NFD")
-              .replace(/[\u0300-\u036f]/g, "")
-              .indexOf(`${this.formatedInput}`) !== -1
+            Utils.normalizeText(element.ingredients).indexOf(
+              this.formatedInput
+            ) !== -1
         );
       });
 
       if (result.length === 0) {
         result = researchArray.filter(
           (item) =>
-            item.name
-              .toLowerCase()
-              .normalize("NFD")
-              .replace(/[\u0300-\u036f]/g, "")
-              .indexOf(`${this.formatedInput}`) !== -1
+            Utils.normalizeText(item.name).indexOf(this.formatedInput) !== -1
         );
       }
     }

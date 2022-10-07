@@ -1,4 +1,5 @@
 import { TagSelector } from "../factories/TagSelector.js";
+import { Utils } from "../utils/Utils.js";
 
 class ResearchBarTag {
   constructor(input, category) {
@@ -8,13 +9,12 @@ class ResearchBarTag {
   }
 
   researchBarTagFilter(researchArray) {
-    this.formatedInput = this.input
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "");
+    this.formatedInput = Utils.normalizeText(this.input);
     let result = [];
 
-    result = researchArray.filter((item) => item.toLowerCase().indexOf(`${this.formatedInput}`) !== -1);
+    result = researchArray.filter(
+      (item) => item.toLowerCase().indexOf(this.formatedInput) !== -1
+    );
     new TagSelector(result, this.category).createItemTagSelector(result);
   }
 }

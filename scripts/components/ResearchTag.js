@@ -1,5 +1,6 @@
 import { RecipeCard } from "../factories/RecipeCard.js";
 import { SplitArray } from "../utils/SplitArray.js";
+import { Utils } from "../utils/Utils.js";
 
 class ResearchTag {
   constructor(tag) {
@@ -18,33 +19,24 @@ class ResearchTag {
     result = researchArray.filter((item) => {
       return item.ingredients.some(
         (element) =>
-          element.ingredient
-            .toLowerCase()
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "")
-            .indexOf(`${this.storedTagArray}`) !== -1
+          Utils.normalizeText(element.ingredient).indexOf(
+            this.storedTagArray
+          ) !== -1
       );
     });
 
     if (result.length == 0) {
       result = researchArray.filter(
         (item) =>
-          item.appliance
-            .toLowerCase()
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "")
-            .indexOf(`${this.storedTagArray}`) !== -1
+          Utils.normalizeText(item.appliance).indexOf(this.storedTagArray) !==
+          -1
       );
 
       if (result.length == 0) {
         result = researchArray.filter((item) => {
           return item.ustensils.some((element) => {
             return (
-              element
-                .toLowerCase()
-                .normalize("NFD")
-                .replace(/[\u0300-\u036f]/g, "")
-                .indexOf(`${this.storedTagArray}`) !== -1
+              Utils.normalizeText(element).indexOf(this.storedTagArray) !== -1
             );
           });
         });

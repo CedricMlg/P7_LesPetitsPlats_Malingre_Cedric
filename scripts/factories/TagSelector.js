@@ -1,5 +1,6 @@
 import { ResearchBarTag } from "../components/ResearchBarTag.js";
 import { Tag } from "./Tag.js";
+import { Utils } from "../utils/Utils.js";
 
 class TagSelector {
   constructor(itemsArray, category) {
@@ -156,12 +157,7 @@ class TagSelector {
     let uniqueItemArray = [];
 
     for (const item of itemsArray) {
-      sortedItemArray.push(
-        item
-          .toLowerCase()
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "")
-      );
+      sortedItemArray.push(Utils.normalizeText(item));
     }
     sortedItemArray.sort();
     uniqueItemArray = [...new Set(sortedItemArray)];
