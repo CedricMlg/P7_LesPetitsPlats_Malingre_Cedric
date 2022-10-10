@@ -64,3 +64,13 @@
     }
   }
 }
+
+@media (max-width: 425px) {
+  .main {
+    &__recipe {
+      &-caption {
+        height: fit-content;
+      }
+    }
+  }
+}

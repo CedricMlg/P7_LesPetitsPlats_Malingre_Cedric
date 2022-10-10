@@ -153,6 +153,11 @@ main.active {
   overflow: auto;
 }
 
+@media (max-width: 425px) {
+  .main__recipe-caption {
+    height: fit-content;
+  }
+}
 .header__searchbar {
   display: flex;
   justify-content: space-between;
