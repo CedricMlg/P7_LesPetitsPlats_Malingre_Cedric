@@ -23,3 +23,18 @@
     }
   }
 }
+
+@media (max-width: 375px) {
+  .header {
+    &__searchbar {
+      margin: 24px 0;
+      padding: 16px;
+      &-btn {
+        & svg {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+  }
+}

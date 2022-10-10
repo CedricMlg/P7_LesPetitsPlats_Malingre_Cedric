@@ -177,6 +177,16 @@ main.active {
   height: 41px;
 }
 
+@media (max-width: 375px) {
+  .header__searchbar {
+    margin: 24px 0;
+    padding: 16px;
+  }
+  .header__searchbar-btn svg {
+    width: 30px;
+    height: 30px;
+  }
+}
 .header__tag-selector {
   color: white;
   position: relative;
