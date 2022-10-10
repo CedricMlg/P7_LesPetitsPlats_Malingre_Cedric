@@ -4,7 +4,7 @@ body {
 }
 
 main.active {
-  margin-top: -460px;
+  margin-top: -371px;
 }
 
 .header__searchbar input {
@@ -65,7 +65,7 @@ main.active {
 .main__recipe-card {
   margin: 0;
   width: 100%;
-  height: min-content;
+  height: 100%;
 }
 .main__recipe-block-img {
   width: 100%;
@@ -79,6 +79,7 @@ main.active {
 }
 .main__recipe-caption {
   display: block;
+  height: 200px;
   border-radius: 0 0 5px 5px;
   background-color: #e7e7e7;
   padding: 22px;
@@ -114,7 +115,12 @@ main.active {
   overflow-wrap: break-word;
 }
 .main__recipe-description {
+  overflow: hidden;
+  height: 92px;
   width: 48%;
+}
+.main__recipe-description:hover {
+  overflow: auto;
 }
 
 .header__searchbar {
@@ -148,43 +154,61 @@ main.active {
   width: fit-content;
   max-width: 52%;
   height: fit-content;
+  overflow: hidden;
   margin: 0 50px 60px 0;
+}
+.header__tag-selector:hover {
+  overflow-y: auto;
 }
 .header__tag-selector.active {
   margin: 0 50px 120px 0;
 }
-.header__tag-selector[data-tag=ingredient] {
+.header__tag-selector[data-tag=ingredients] {
   background-color: #3282f7;
 }
-.header__tag-selector[data-tag=ingredient] .header__tag-choice--display.active {
+.header__tag-selector[data-tag=ingredients] .header__tag-researcher {
+  background-color: #3282f7;
+}
+.header__tag-selector[data-tag=ingredients] .header__tag-choice--display.active {
   background-color: #3282f7;
   border-radius: 4px;
   display: block;
 }
-.header__tag-selector[data-tag=appliance] {
+.header__tag-selector[data-tag=appareils] {
   background-color: #68d9a4;
 }
-.header__tag-selector[data-tag=appliance] .header__tag-choice--display.active {
+.header__tag-selector[data-tag=appareils] .header__tag-researcher {
+  background-color: #68d9a4;
+}
+.header__tag-selector[data-tag=appareils] .header__tag-choice--display.active {
   background-color: #68d9a4;
   border-radius: 4px;
   display: block;
 }
-.header__tag-selector[data-tag=ustensil] {
+.header__tag-selector[data-tag=ustensiles] {
   background-color: #ed6454;
 }
-.header__tag-selector[data-tag=ustensil] .header__tag-choice--display.active {
+.header__tag-selector[data-tag=ustensiles] .header__tag-researcher {
+  background-color: #ed6454;
+}
+.header__tag-selector[data-tag=ustensiles] .header__tag-choice--display.active {
   background-color: #ed6454;
   border-radius: 4px;
   display: block;
 }
 .header__tag-researcher {
+  position: sticky;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  top: 0;
   padding: 31px 28px;
 }
 .header__tag-researcher p {
   margin: 0 45px 0 0;
+}
+.header__tag-researcher p:first-letter {
+  text-transform: capitalize;
 }
 .header__tag-researcher p.active {
   display: none;
@@ -207,7 +231,8 @@ main.active {
 .header__tag-researcher svg {
   fill: white;
   height: 20px;
-  width: 19px;
+  width: 24px;
+  cursor: pointer;
 }
 .header__tag-researcher svg.active {
   transform: rotate(-180deg);
@@ -221,37 +246,46 @@ main.active {
 }
 .header__tag-choice--display {
   display: none;
+  height: 371px;
 }
 .header__tag-choice p {
-  flex: 0 0 33.2%;
+  flex: 0 0 27%;
   margin: 0 0 12px 0;
+  cursor: pointer;
+}
+.header__tag-choice p:first-letter {
+  text-transform: capitalize;
 }
 
 .header__tag {
   display: flex;
   align-items: center;
   border-radius: 4px;
-  margin: 0 25px 0 0;
-  padding: 12px;
+  margin: 0 25px 25px 0;
+  padding: 12px 16px;
   width: fit-content;
   color: white;
 }
 .header__tag p {
   margin: 0 12px;
 }
-.header__tag svg {
-  margin: 0 5px;
-  width: 26px;
-  height: 26px;
-  fill: white;
+.header__tag p:first-letter {
+  text-transform: capitalize;
 }
-.header__tag[data-tag=ingredient] {
+.header__tag svg {
+  margin: 0 4px;
+  width: 30px;
+  height: 24px;
+  fill: white;
+  cursor: pointer;
+}
+.header__tag[data-tag=ingredients] {
   background-color: #3282f7;
 }
-.header__tag[data-tag=device] {
+.header__tag[data-tag=appareils] {
   background-color: #68d9a4;
 }
-.header__tag[data-tag=ustensil] {
+.header__tag[data-tag=ustensiles] {
   background-color: #ed6454;
 }
 
@@ -274,7 +308,7 @@ header {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: 0 0 25px 0;
+  margin: 0 0 10px 0;
 }
 .header__block-tag-selector {
   display: flex;
@@ -288,6 +322,17 @@ header {
   grid-template-rows: auto;
   column-gap: 4%;
   row-gap: 50px;
+}
+
+@media (max-width: 1440px) {
+  .main__block-recipe-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 1024px) {
+  .main__block-recipe-cards {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
