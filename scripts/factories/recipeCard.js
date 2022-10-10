@@ -44,7 +44,7 @@ class RecipeCard {
 
     this.blockRecipeCards.appendChild(this.recipeCard);
 
-    this.createIngredient(recipe)
+    this.createIngredient(recipe);
   }
 
   createIngredient(recipe) {
