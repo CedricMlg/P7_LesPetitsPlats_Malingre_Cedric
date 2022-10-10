@@ -174,7 +174,15 @@ class TagSelector {
 
     items.forEach((element) => {
       element.addEventListener("click", (event) => {
-        new Tag(event, this.category);
+        let storedTagArray = JSON.parse(localStorage.getItem("tag"));
+        if (
+          storedTagArray != null &&
+          storedTagArray.includes(event.target.innerText)
+        ) {
+          return;
+        } else {
+          new Tag(event, this.category);
+        }
       });
     });
   }
