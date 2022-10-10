@@ -4,3 +4,12 @@
     height: 123px;
   }
 }
+
+@media (max-width: 375px) {
+  .header {
+    &__logo {
+      width: 260px;
+      height: 92px;
+    }
+  }
+}

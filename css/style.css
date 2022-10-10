@@ -62,6 +62,12 @@ main.active {
   height: 123px;
 }
 
+@media (max-width: 375px) {
+  .header__logo {
+    width: 260px;
+    height: 92px;
+  }
+}
 .main__recipe-card {
   margin: 0;
   width: 100%;
