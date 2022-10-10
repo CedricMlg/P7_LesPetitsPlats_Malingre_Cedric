@@ -15,7 +15,7 @@ const observer = new MutationObserver(function (mutations_list) {
   storedResearchArray = JSON.parse(localStorage.getItem("research"));
   storedTagArray = JSON.parse(localStorage.getItem("tag"));
   blockRecipeCards.innerHTML = "";
-  
+
   mutations_list.forEach(function (mutation) {
     mutation.addedNodes.forEach(function () {
       if (storedResearchArray == null || storedResearchArray.length == 0) {
@@ -40,10 +40,18 @@ const observer = new MutationObserver(function (mutations_list) {
           localStorage.setItem("research", JSON.stringify(storedResearchArray));
         }
       } else {
-        storedResearchArray = recipes;
-        for (const tag of storedTagArray) {
-          new ResearchTag(tag).researchTagFilter(storedResearchArray);
-          storedResearchArray = JSON.parse(localStorage.getItem("research"));
+        if (researchBar.value.length >= 3) {
+          new ResearchBar(researchBar.value).researchBarFilter(recipes);
+          for (const tag of storedTagArray) {
+            new ResearchTag(tag).researchTagFilter(storedResearchArray);
+            storedResearchArray = JSON.parse(localStorage.getItem("research"));
+          }
+        } else {
+          storedResearchArray = recipes;
+          for (const tag of storedTagArray) {
+            new ResearchTag(tag).researchTagFilter(storedResearchArray);
+            storedResearchArray = JSON.parse(localStorage.getItem("research"));
+          }
         }
       }
     });
