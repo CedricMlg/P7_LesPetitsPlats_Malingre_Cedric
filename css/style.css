@@ -57,11 +57,41 @@ main.active {
   font-family: "Roboto", sans-serif;
 }
 
+@media (max-width: 375px) {
+  .header__searchbar input {
+    font-size: 19px;
+  }
+  .header__tag-researcher {
+    font-size: 20px;
+  }
+  .header__tag-researcher input {
+    font-size: 18px;
+  }
+
+  .main__recipe-titlextime p {
+    font-size: 20px;
+  }
+  .main__recipe-time p {
+    font-size: 20px;
+  }
+  .main__recipe-ingredients {
+    font-size: 14px;
+  }
+  .main__recipe-description {
+    font-size: 15px;
+  }
+}
 .header__logo {
   width: 355px;
   height: 123px;
 }
 
+@media (max-width: 375px) {
+  .header__logo {
+    width: 260px;
+    height: 92px;
+  }
+}
 .main__recipe-card {
   margin: 0;
   width: 100%;
@@ -123,6 +153,11 @@ main.active {
   overflow: auto;
 }
 
+@media (max-width: 425px) {
+  .main__recipe-caption {
+    height: fit-content;
+  }
+}
 .header__searchbar {
   display: flex;
   justify-content: space-between;
@@ -147,11 +182,21 @@ main.active {
   height: 41px;
 }
 
+@media (max-width: 375px) {
+  .header__searchbar {
+    margin: 24px 0;
+    padding: 16px;
+  }
+  .header__searchbar-btn svg {
+    width: 30px;
+    height: 30px;
+  }
+}
 .header__tag-selector {
   color: white;
   position: relative;
   border-radius: 5px;
-  width: fit-content;
+  width: 235px;
   max-width: 52%;
   height: fit-content;
   overflow: hidden;
@@ -161,7 +206,7 @@ main.active {
   overflow-y: auto;
 }
 .header__tag-selector.active {
-  margin: 0 50px 120px 0;
+  width: fit-content;
 }
 .header__tag-selector[data-tag=ingredients] {
   background-color: #3282f7;
@@ -249,7 +294,7 @@ main.active {
   height: 371px;
 }
 .header__tag-choice p {
-  flex: 0 0 33.2%;
+  flex: 0 0 27%;
   margin: 0 0 12px 0;
   cursor: pointer;
 }
@@ -257,6 +302,33 @@ main.active {
   text-transform: capitalize;
 }
 
+@media (max-width: 960px) {
+  .header__tag-selector {
+    max-width: 60%;
+    margin: 0 35px 35px 0;
+  }
+}
+@media (max-width: 886px) {
+  .header__tag-selector {
+    max-width: 100%;
+  }
+  .header__tag-selector.active {
+    margin: 0 0 35px 0;
+  }
+}
+@media (max-width: 425px) {
+  .header__tag-selector {
+    width: 100%;
+    margin: 0 0 35px 0;
+  }
+  .header__tag-choice p {
+    flex: 0 0 44%;
+    margin: 0 0 18px 0;
+  }
+  .header__tag-researcher {
+    padding: 31px 20px;
+  }
+}
 .header__tag {
   display: flex;
   align-items: center;
@@ -322,6 +394,17 @@ header {
   grid-template-rows: auto;
   column-gap: 4%;
   row-gap: 50px;
+}
+
+@media (max-width: 1440px) {
+  .main__block-recipe-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 1024px) {
+  .main__block-recipe-cards {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

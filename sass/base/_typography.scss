@@ -65,3 +65,42 @@
     }
   }
 }
+
+@media (max-width: 375px) {
+  .header {
+    &__searchbar {
+      & input {
+        font-size: 19px;
+      }
+    }
+    &__tag {
+      &-researcher {
+        font-size: 20px;
+        & input {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  .main {
+    &__recipe {
+      &-titlextime {
+        & p {
+          font-size: 20px;
+        }
+      }
+      &-time {
+        & p {
+          font-size: 20px;
+        }
+      }
+      &-ingredients {
+        font-size: 14px;
+      }
+      &-description {
+        font-size: 15px;
+      }
+    }
+  }
+}

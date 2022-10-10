@@ -54,8 +54,10 @@ class TagSelector {
     const selectorDisplay = this.templateTagSelector.querySelector(
       ".header__tag-choice--display"
     );
+    const templateTagSelector = this.templateTagSelector;
 
-    this.templateTagSelector.addEventListener("click", (element) => {
+    templateTagSelector.addEventListener("click", (element) => {
+      templateTagSelector.classList.add("active");
       selectorDisplay.classList.add("active");
       document.querySelector("main").classList.add("active");
 
@@ -74,6 +76,7 @@ class TagSelector {
     });
 
     function closeTagSelector() {
+      templateTagSelector.classList.remove("active");
       selectorDisplay.classList.remove("active");
       document.querySelector("main").classList.remove("active");
 
@@ -88,7 +91,7 @@ class TagSelector {
       if (element.target === svg || svg.contains(element.target)) {
         closeTagSelector();
         return;
-      } else if (element.target === this.templateTagSelector) {
+      } else if (element.target === templateTagSelector) {
         return;
       } else {
         closeTagSelector();

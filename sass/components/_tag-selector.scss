@@ -4,7 +4,7 @@
       color: white;
       position: relative;
       border-radius: 5px;
-      width: fit-content;
+      width: 235px;
       max-width: 52%;
       height: fit-content;
       overflow: hidden;
@@ -13,7 +13,7 @@
         overflow-y: auto;
       }
       &.active {
-        margin: 0 50px 120px 0;
+        width: fit-content;
       }
       &[data-tag="ingredients"] {
         background-color: #3282f7;
@@ -131,6 +131,50 @@
         &:first-letter {
           text-transform: capitalize;
         }
+      }
+    }
+  }
+}
+
+@media (max-width: 960px) {
+  .header {
+    &__tag {
+      &-selector {
+        max-width: 60%;
+        margin: 0 35px 35px 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 886px) {
+  .header {
+    &__tag {
+      &-selector {
+        max-width: 100%;
+        &.active {
+          margin: 0 0 35px 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .header {
+    &__tag {
+      &-selector {
+        width: 100%;
+        margin: 0 0 35px 0;
+      }
+      &-choice {
+        & p {
+          flex: 0 0 44%;
+          margin: 0 0 18px 0;
+        }
+      }
+      &-researcher {
+        padding: 31px 20px;
       }
     }
   }
