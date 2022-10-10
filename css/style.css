@@ -57,6 +57,30 @@ main.active {
   font-family: "Roboto", sans-serif;
 }
 
+@media (max-width: 375px) {
+  .header__searchbar input {
+    font-size: 19px;
+  }
+  .header__tag-researcher {
+    font-size: 20px;
+  }
+  .header__tag-researcher input {
+    font-size: 18px;
+  }
+
+  .main__recipe-titlextime p {
+    font-size: 20px;
+  }
+  .main__recipe-time p {
+    font-size: 20px;
+  }
+  .main__recipe-ingredients {
+    font-size: 14px;
+  }
+  .main__recipe-description {
+    font-size: 15px;
+  }
+}
 .header__logo {
   width: 355px;
   height: 123px;
