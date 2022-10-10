@@ -196,7 +196,7 @@ main.active {
   color: white;
   position: relative;
   border-radius: 5px;
-  width: fit-content;
+  width: 235px;
   max-width: 52%;
   height: fit-content;
   overflow: hidden;
@@ -206,7 +206,7 @@ main.active {
   overflow-y: auto;
 }
 .header__tag-selector.active {
-  margin: 0 50px 120px 0;
+  width: fit-content;
 }
 .header__tag-selector[data-tag=ingredients] {
   background-color: #3282f7;
@@ -302,6 +302,33 @@ main.active {
   text-transform: capitalize;
 }
 
+@media (max-width: 960px) {
+  .header__tag-selector {
+    max-width: 60%;
+    margin: 0 35px 35px 0;
+  }
+}
+@media (max-width: 886px) {
+  .header__tag-selector {
+    max-width: 100%;
+  }
+  .header__tag-selector.active {
+    margin: 0 0 35px 0;
+  }
+}
+@media (max-width: 425px) {
+  .header__tag-selector {
+    width: 100%;
+    margin: 0 0 35px 0;
+  }
+  .header__tag-choice p {
+    flex: 0 0 44%;
+    margin: 0 0 18px 0;
+  }
+  .header__tag-researcher {
+    padding: 31px 20px;
+  }
+}
 .header__tag {
   display: flex;
   align-items: center;
