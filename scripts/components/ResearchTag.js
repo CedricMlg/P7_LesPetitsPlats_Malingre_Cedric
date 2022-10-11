@@ -45,9 +45,9 @@ class ResearchTag {
 
     this.storedResearchArray = result;
 
-    for (const recipe of result) {
+    result.forEach((recipe) => {
       new RecipeCard().createRecipeCard(recipe);
-    }
+    });
     new SplitArray(result);
 
     localStorage.setItem("research", JSON.stringify(this.storedResearchArray));

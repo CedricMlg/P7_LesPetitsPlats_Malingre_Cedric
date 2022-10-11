@@ -1,3 +1,4 @@
+import { recipes } from "../../data/recipes.js";
 import { RecipeCard } from "../factories/RecipeCard.js";
 import { SplitArray } from "../utils/SplitArray.js";
 import { Utils } from "../utils/Utils.js";
@@ -44,9 +45,9 @@ class ResearchBar {
 
     this.storedResearchArray = result;
 
-    for (const recipe of result) {
+    result.forEach((recipe) => {
       new RecipeCard().createRecipeCard(recipe);
-    }
+    });
     new SplitArray(result);
 
     localStorage.setItem("research", JSON.stringify(this.storedResearchArray));
