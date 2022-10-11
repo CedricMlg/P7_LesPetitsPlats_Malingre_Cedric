@@ -52,7 +52,7 @@ class RecipeCard {
       ".main__recipe-ingredients"
     );
 
-    for (const element of recipe.ingredients) {
+    recipe.ingredients.forEach((element) => {
       const ingredient = document.createElement("p");
 
       if (element.unit == null && element.quantity == null) {
@@ -64,7 +64,7 @@ class RecipeCard {
       }
 
       recipeCardIngredients.appendChild(ingredient);
-    }
+    });
   }
 }
 
