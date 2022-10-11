@@ -175,7 +175,7 @@ class TagSelector {
 
     const items = itemBlock.querySelectorAll(`.header__tag-choice p`);
 
-    items.forEach((element) => {
+    for (const element of items) {
       element.addEventListener("click", (event) => {
         let storedTagArray = JSON.parse(localStorage.getItem("tag"));
         if (
@@ -187,7 +187,7 @@ class TagSelector {
           new Tag(event, this.category);
         }
       });
-    });
+    }
   }
 }
 
