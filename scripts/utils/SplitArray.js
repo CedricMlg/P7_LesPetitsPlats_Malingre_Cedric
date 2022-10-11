@@ -9,7 +9,7 @@ class SplitArray {
     let applianceArray = [];
     let ustensilsArray = [];
 
-    for (const item of recipeData) {
+    recipeData.forEach((item) => {
       applianceArray.push(item.appliance);
       for (const ustensil of item.ustensils) {
         ustensilsArray.push(ustensil);
@@ -17,16 +17,22 @@ class SplitArray {
       for (const ingredient of item.ingredients) {
         ingredientsArray.push(ingredient.ingredient);
       }
-    }
+    });
 
     if (blockTagSelector.childNodes.length == 0) {
       new TagSelector(ingredientsArray, "ingredients").createTagSelector();
       new TagSelector(applianceArray, "appareils").createTagSelector();
       new TagSelector(ustensilsArray, "ustensiles").createTagSelector();
     } else {
-      new TagSelector(ingredientsArray, "ingredients").createItemTagSelector(ingredientsArray);
-      new TagSelector(applianceArray, "appareils").createItemTagSelector(applianceArray);
-      new TagSelector(ustensilsArray, "ustensiles").createItemTagSelector(ustensilsArray);
+      new TagSelector(ingredientsArray, "ingredients").createItemTagSelector(
+        ingredientsArray
+      );
+      new TagSelector(applianceArray, "appareils").createItemTagSelector(
+        applianceArray
+      );
+      new TagSelector(ustensilsArray, "ustensiles").createItemTagSelector(
+        ustensilsArray
+      );
     }
   }
 }
