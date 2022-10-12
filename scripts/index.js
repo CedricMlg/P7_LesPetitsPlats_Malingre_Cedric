@@ -3,6 +3,7 @@ import { ResearchBar } from "./components/ResearchBar.js";
 import { ResearchTag } from "./components/ResearchTag.js";
 import { RecipeCard } from "./factories/RecipeCard.js";
 import { SplitArray } from "./utils/SplitArray.js";
+import { Utils } from "./utils/Utils.js";
 
 const researchBar = document.querySelector(".header__searchbar-input");
 const blockTag = document.querySelector(".header__block-tag");
@@ -10,6 +11,10 @@ const blockTagSelector = document.querySelector(".header__block-tag-selector");
 const blockRecipeCards = document.querySelector(".main__block-recipe-cards");
 let storedResearchArray = JSON.parse(localStorage.getItem("research"));
 let storedTagArray = JSON.parse(localStorage.getItem("tag"));
+let simplifiedResearchableWithInput = [];
+let simplifiedResearchableWithTag = [];
+
+let researchableWithTag = [];
 
 const observer = new MutationObserver(function (mutations_list) {
   storedResearchArray = JSON.parse(localStorage.getItem("research"));
@@ -68,6 +73,22 @@ window.addEventListener("load", () => {
     new RecipeCard().createRecipeCard(recipe);
   }
   new SplitArray(recipes);
+
+  recipes.forEach((recipe) => {
+    let researchableWithInput = [];
+
+    researchableWithInput.push(recipe.description, recipe.name);
+
+    recipe.ingredients.forEach((item) => {
+      researchableWithInput.push(item.ingredient);
+    });
+
+    simplifiedResearchableWithInput.push({
+      id: recipe.id,
+      search: Utils.cleanUpText(researchableWithInput),
+    });
+  });
+
   localStorage.clear();
 });
 
