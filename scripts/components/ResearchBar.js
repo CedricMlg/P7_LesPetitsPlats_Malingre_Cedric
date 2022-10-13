@@ -1,4 +1,3 @@
-import { recipes } from "../../data/recipes.js";
 import { RecipeCard } from "../factories/RecipeCard.js";
 import { SplitArray } from "../utils/SplitArray.js";
 import { Utils } from "../utils/Utils.js";
