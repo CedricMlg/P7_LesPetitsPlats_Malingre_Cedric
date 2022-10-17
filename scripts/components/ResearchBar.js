@@ -1,3 +1,4 @@
+import { recipes } from "../../data/recipes.js";
 import { RecipeCard } from "../factories/RecipeCard.js";
 import { SplitArray } from "../utils/SplitArray.js";
 import { Utils } from "../utils/Utils.js";
@@ -16,31 +17,17 @@ class ResearchBar {
   researchBarFilter(researchArray) {
     this.blockRecipeCards.innerHTML = "";
     let result = [];
+    let resultId = [];
 
     this.formatedInput = Utils.normalizeText(this.input);
 
-    result = researchArray.filter(
-      (item) =>
-        Utils.normalizeText(item.description).indexOf(this.formatedInput) !== -1
+    result = researchArray.filter((item) =>
+      item.search.some((element) => element.indexOf(this.formatedInput) !== -1)
     );
 
-    if (result.length === 0) {
-      result = researchArray.filter((item) => {
-        return item.ingredients.some(
-          (element) =>
-            Utils.normalizeText(element.ingredients).indexOf(
-              this.formatedInput
-            ) !== -1
-        );
-      });
+    result.forEach((item) => resultId.push(item.id));
 
-      if (result.length === 0) {
-        result = researchArray.filter(
-          (item) =>
-            Utils.normalizeText(item.name).indexOf(this.formatedInput) !== -1
-        );
-      }
-    }
+    result = recipes.filter((item) => resultId.includes(item.id));
 
     this.storedResearchArray = result;
 

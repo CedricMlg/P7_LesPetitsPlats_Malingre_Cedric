@@ -27,11 +27,14 @@ const observer = new MutationObserver(function (mutations_list) {
           new ResearchTag(tag).researchTagFilter(storedResearchArray);
         }
       }
+      updateSimplifiedResearchable();
     });
     mutation.removedNodes.forEach(function () {
       if (blockTag.innerText === "") {
         if (researchBar.value.length >= 3) {
-          new ResearchBar(researchBar.value).researchBarFilter(recipes);
+          new ResearchBar(researchBar.value).researchBarFilter(
+            simplifiedResearchableWithInput
+          );
         } else {
           for (const recipe of recipes) {
             new RecipeCard().createRecipeCard(recipe);
@@ -43,19 +46,24 @@ const observer = new MutationObserver(function (mutations_list) {
         }
       } else {
         if (researchBar.value.length >= 3) {
-          new ResearchBar(researchBar.value).researchBarFilter(recipes);
+          new ResearchBar(researchBar.value).researchBarFilter(
+            simplifiedResearchableWithInput
+          );
+
           for (const tag of storedTagArray) {
             new ResearchTag(tag).researchTagFilter(storedResearchArray);
             storedResearchArray = JSON.parse(localStorage.getItem("research"));
           }
         } else {
           storedResearchArray = recipes;
+
           for (const tag of storedTagArray) {
             new ResearchTag(tag).researchTagFilter(storedResearchArray);
             storedResearchArray = JSON.parse(localStorage.getItem("research"));
           }
         }
       }
+      updateSimplifiedResearchable();
     });
   });
 });
@@ -96,11 +104,9 @@ researchBar.addEventListener("input", () => {
   blockTagSelector.innerHTML = "";
 
   if (researchBar.value.length >= 3) {
-    if (storedResearchArray == null || storedResearchArray.length == 0) {
-      new ResearchBar(researchBar.value).researchBarFilter(recipes);
-    } else {
-      new ResearchBar(researchBar.value).researchBarFilter(storedResearchArray);
-    }
+    new ResearchBar(researchBar.value).researchBarFilter(
+      simplifiedResearchableWithInput
+    );
   } else {
     if (blockTag.innerText === "") {
       for (const recipe of recipes) {
@@ -119,5 +125,43 @@ researchBar.addEventListener("input", () => {
         storedResearchArray = JSON.parse(localStorage.getItem("research"));
       }
     }
+    updateSimplifiedResearchable();
   }
 });
+
+function updateSimplifiedResearchable() {
+  storedResearchArray = JSON.parse(localStorage.getItem("research"));
+  simplifiedResearchableWithInput = [];
+
+  if (storedResearchArray == null || storedResearchArray.length == 0) {
+    recipes.forEach((recipe) => {
+      let researchableWithInput = [];
+
+      researchableWithInput.push(recipe.description, recipe.name);
+
+      recipe.ingredients.forEach((item) => {
+        researchableWithInput.push(item.ingredient);
+      });
+
+      simplifiedResearchableWithInput.push({
+        id: recipe.id,
+        search: Utils.cleanUpText(researchableWithInput),
+      });
+    });
+  } else {
+    storedResearchArray.forEach((recipe) => {
+      let researchableWithInput = [];
+
+      researchableWithInput.push(recipe.description, recipe.name);
+
+      recipe.ingredients.forEach((item) => {
+        researchableWithInput.push(item.ingredient);
+      });
+
+      simplifiedResearchableWithInput.push({
+        id: recipe.id,
+        search: Utils.cleanUpText(researchableWithInput),
+      });
+    });
+  }
+}
