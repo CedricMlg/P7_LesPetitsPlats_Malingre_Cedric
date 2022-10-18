@@ -14,6 +14,10 @@ class Tag {
     this.removeTag();
   }
 
+  /**
+   * It creates a tag element, adds a class, adds a data attribute, adds an innerHTML, pushes the
+   * innerText of the clicked element to an array, and then adds the tag element to the DOM.
+   */
   createTag() {
     this.templateTag.classList.add("header__tag");
     this.templateTag.dataset.tag = `${this.category}`;
@@ -31,6 +35,10 @@ class Tag {
     this.blockTag.appendChild(this.templateTag);
   }
 
+  /**
+   * When the user clicks on the svg element, the tag is removed from the local storage and the tag is
+   * removed from the DOM.
+   */
   removeTag() {
     const svg = this.templateTag.querySelector("svg");
     svg.addEventListener("click", () => {

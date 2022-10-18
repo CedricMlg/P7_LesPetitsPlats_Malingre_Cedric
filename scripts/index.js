@@ -11,6 +11,7 @@ const blockRecipeCards = document.querySelector(".main__block-recipe-cards");
 let storedResearchArray = JSON.parse(localStorage.getItem("research"));
 let storedTagArray = JSON.parse(localStorage.getItem("tag"));
 
+/* An observer that observes the blockTag element. */
 const observer = new MutationObserver(function (mutations_list) {
   storedResearchArray = JSON.parse(localStorage.getItem("research"));
   storedTagArray = JSON.parse(localStorage.getItem("tag"));

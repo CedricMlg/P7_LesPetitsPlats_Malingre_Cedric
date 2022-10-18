@@ -12,6 +12,10 @@ class ResearchTag {
     this.blockRecipeCards = document.querySelector(".main__block-recipe-cards");
   }
 
+/**
+ * It filters an array of objects based on the value of a property of the objects
+ * @param researchArray - the array of recipes that I want to filter
+ */
   researchTagFilter(researchArray) {
     this.blockRecipeCards.innerHTML = "";
     let result = [];

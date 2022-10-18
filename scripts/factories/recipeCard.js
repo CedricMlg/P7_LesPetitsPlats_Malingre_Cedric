@@ -4,6 +4,10 @@ class RecipeCard {
     this.recipeCard = document.createElement("figure");
   }
 
+  /**
+   * It creates a recipe card with the recipe's name, time, description, and ingredients.
+   * @param recipe - {
+   */
   createRecipeCard(recipe) {
     this.recipeCard.classList.add("main__recipe-card");
     this.recipeCard.innerHTML = `
@@ -47,6 +51,11 @@ class RecipeCard {
     this.createIngredient(recipe);
   }
 
+  /**
+   * It creates a paragraph element for each ingredient in the recipe object, and then appends it to the
+   * recipe card.
+   * @param recipe - {
+   */
   createIngredient(recipe) {
     const recipeCardIngredients = this.recipeCard.querySelector(
       ".main__recipe-ingredients"

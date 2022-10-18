@@ -13,6 +13,10 @@ class ResearchBar {
     this.blockRecipeCards = document.querySelector(".main__block-recipe-cards");
   }
 
+  /**
+   * It filters an array of objects and displays the results in a list
+   * @param researchArray - an array of objects
+   */
   researchBarFilter(researchArray) {
     this.blockRecipeCards.innerHTML = "";
     let result = [];
