@@ -13,6 +13,10 @@ class ResearchBar {
     this.blockRecipeCards = document.querySelector(".main__block-recipe-cards");
   }
 
+  /**
+   * It filters the recipes based on the user's input
+   * @param researchArray - an array of objects
+   */
   researchBarFilter(researchArray) {
     this.blockRecipeCards.innerHTML = "";
     let result = [];
