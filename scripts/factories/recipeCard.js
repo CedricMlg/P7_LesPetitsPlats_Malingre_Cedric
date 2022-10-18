@@ -4,6 +4,10 @@ class RecipeCard {
     this.recipeCard = document.createElement("figure");
   }
 
+  /**
+   * This function creates a recipe card and appends it to the DOM.
+   * @param recipe - {
+   */
   createRecipeCard(recipe) {
     this.recipeCard.classList.add("main__recipe-card");
     this.recipeCard.innerHTML = `
@@ -47,6 +51,11 @@ class RecipeCard {
     this.createIngredient(recipe);
   }
 
+  /**
+   * It takes the recipe object and loops through the ingredients array, creating a new p element for
+   * each ingredient and appending it to the recipeCardIngredients div.
+   * @param recipe - {
+   */
   createIngredient(recipe) {
     const recipeCardIngredients = this.recipeCard.querySelector(
       ".main__recipe-ingredients"

@@ -13,6 +13,7 @@ let storedResearchArray = JSON.parse(localStorage.getItem("research"));
 let storedTagArray = JSON.parse(localStorage.getItem("tag"));
 let simplifiedResearchableWithInput = [];
 
+/* Observing the blockTag element for any changes. */
 const observer = new MutationObserver(function (mutations_list) {
   storedResearchArray = JSON.parse(localStorage.getItem("research"));
   storedTagArray = JSON.parse(localStorage.getItem("tag"));
@@ -129,6 +130,13 @@ researchBar.addEventListener("input", () => {
   }
 });
 
+/**
+ * If the localStorage is empty, then it will use the recipes array to populate the
+ * simplifiedResearchableWithInput array.
+ *
+ * If the localStorage is not empty, then it will use the storedResearchArray to populate the
+ * simplifiedResearchableWithInput array.
+ */
 function updateSimplifiedResearchable() {
   storedResearchArray = JSON.parse(localStorage.getItem("research"));
   simplifiedResearchableWithInput = [];

@@ -12,6 +12,10 @@ class TagSelector {
     this.itemsArray = itemsArray;
   }
 
+  /**
+   * It creates a tag selector, which is a dropdown menu that allows the user to select one or more items
+   * from a list
+   */
   createTagSelector() {
     this.templateTagSelector.classList.add(`header__tag-selector`);
     this.templateTagSelector.dataset.tag = `${this.category}`;
@@ -43,6 +47,11 @@ class TagSelector {
     this.createItemTagSelector(this.itemsArray);
   }
 
+  /**
+   * When the user clicks on the tag selector, the tag selector opens, and when the user clicks anywhere
+   * else, the tag selector closes.
+   * </code>
+   */
   listenTagSelector() {
     const selectorResearch = this.templateTagSelector.querySelector(
       ".header__tag-researcher"
@@ -75,6 +84,10 @@ class TagSelector {
       document.addEventListener("click", checkClickLocation, true);
     });
 
+    /**
+     * It removes the active class from the templateTagSelector, selectorDisplay, and main elements, and
+     * then removes the active class from all elements in the activables array
+     */
     function closeTagSelector() {
       templateTagSelector.classList.remove("active");
       selectorDisplay.classList.remove("active");
@@ -87,6 +100,12 @@ class TagSelector {
       document.removeEventListener("click", checkClickLocation, true);
     }
 
+    /**
+     * If the user clicks on the SVG, the tag selector is closed. If the user clicks on the tag selector,
+     * the tag selector is not closed. If the user clicks anywhere else, the tag selector is closed
+     * @param element - the event object
+     * @returns the value of the function.
+     */
     function checkClickLocation(element) {
       if (element.target === svg || svg.contains(element.target)) {
         closeTagSelector();
@@ -100,6 +119,9 @@ class TagSelector {
     }
   }
 
+  /**
+   * It listens to the input of the research bar and filters the tags in the tag selector.
+   */
   listenResearchBarTagSelector() {
     const researchBarTag = this.templateTagSelector.querySelector(
       ".header__tag-researcher input"
@@ -151,6 +173,10 @@ class TagSelector {
     });
   }
 
+  /**
+   * It creates a list of tags from an array of items, and then adds an event listener to each tag.
+   * @param itemsArray - an array of strings
+   */
   createItemTagSelector(itemsArray) {
     const itemBlock = document.querySelector(
       `[data-tag="${this.category}"] .header__tag-choice`

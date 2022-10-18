@@ -8,6 +8,10 @@ class ResearchBarTag {
     this.formatedInput = "";
   }
 
+  /**
+   * It takes an array of strings, and returns an array of strings that contain the input string.
+   * @param researchArray - an array of strings
+   */
   researchBarTagFilter(researchArray) {
     this.formatedInput = Utils.normalizeText(this.input);
     let result = [];
