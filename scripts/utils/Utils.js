@@ -27,7 +27,7 @@ class Utils {
       .filter((str) => str.length >= 3)
       .sort();
 
-    return [...new Set(normalizeStr)];
+    return [...new Set(normalizeStr)].join(" ");
   }
 }
 

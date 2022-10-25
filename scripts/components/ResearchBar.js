@@ -22,17 +22,15 @@ class ResearchBar {
   researchBarFilter(researchArray) {
     this.blockRecipeCards.innerHTML = "";
     let result = [];
-    let resultId = [];
 
     this.formatedInput = Utils.normalizeText(this.input);
 
-    result = researchArray.filter((item) =>
-      item.search.some((element) => element.indexOf(this.formatedInput) !== -1)
-    );
-
-    result.forEach((item) => resultId.push(item.id));
-
-    result = recipes.filter((item) => resultId.includes(item.id));
+    researchArray.forEach(item => {
+      if (item.search.indexOf(this.formatedInput) !== -1) {
+        let recipe = recipes.find(element => element.id == item.id);
+        result.push(recipe);
+      }
+    });
 
     this.storedResearchArray = result;
 
