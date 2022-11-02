@@ -32,6 +32,9 @@ const observer = new MutationObserver(function (mutations_list) {
     });
     mutation.removedNodes.forEach(function () {
       if (blockTag.innerText === "") {
+        storedResearchArray.splice(0, storedResearchArray.length);
+        localStorage.setItem("research", JSON.stringify(storedResearchArray));
+        updateSimplifiedResearchable();
         if (researchBar.value.length >= 3) {
           new ResearchBar(researchBar.value).researchBarFilter(
             simplifiedResearchableWithInput
@@ -41,9 +44,6 @@ const observer = new MutationObserver(function (mutations_list) {
             new RecipeCard().createRecipeCard(recipe);
           }
           new SplitArray(recipes);
-
-          storedResearchArray.splice(0, storedResearchArray.length);
-          localStorage.setItem("research", JSON.stringify(storedResearchArray));
         }
       } else {
         if (researchBar.value.length >= 3) {
@@ -63,8 +63,8 @@ const observer = new MutationObserver(function (mutations_list) {
             storedResearchArray = JSON.parse(localStorage.getItem("research"));
           }
         }
+        updateSimplifiedResearchable();
       }
-      updateSimplifiedResearchable();
     });
   });
 });
