@@ -19,7 +19,13 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    npm install
    ```
-4. Get it running
-   ```js
-   On VScode use "Go Live" to run live server
+4. Install live-server to run a local server
+   ```sh
+   npm install -g live-server
    ```
+5. Run the app
+   ```sh
+   live-server
+   ```
+
+Go to : `http://127.0.0.1:8080/`
