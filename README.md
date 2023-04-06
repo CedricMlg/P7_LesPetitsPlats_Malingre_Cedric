@@ -9,7 +9,7 @@ To get a local copy up and running follow these simple example steps.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/CedricMlg/P4_GameOn_Malingre_Cedric
+   git clone https://github.com/CedricMlg/P7_LesPetitsPlats_Malingre_Cedric
    ```
 2. Place yourself on the project
    ```sh
